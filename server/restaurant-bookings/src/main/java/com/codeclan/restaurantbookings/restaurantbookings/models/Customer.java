@@ -20,6 +20,8 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
+    
+
     public Customer(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;

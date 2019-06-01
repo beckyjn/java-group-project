@@ -69,6 +69,8 @@ public class CustomerTest {
     @Test
     public void getBookings() {
         assertEquals(0, customer.getBookings().size());
+        assertEquals(true, customer.getBookings().isEmpty());
+
     }
 
     @Test

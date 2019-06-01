@@ -58,6 +58,8 @@ public class RestaurantTableTest {
     @Test
     public void getBookings() {
         assertEquals(0, restaurantTable.getBookings().size());
+        assertEquals(true, restaurantTable.getBookings().isEmpty());
+
     }
 
     @Test

@@ -13,13 +13,19 @@ import static org.junit.Assert.*;
 public class BookingTest {
 
     Booking booking;
+    Booking booking1;
+    Booking booking2;
+    Booking booking3;
     Customer customer;
     Customer customer2;
     RestaurantTable  restaurantTable;
     RestaurantTable  restaurantTable2;
     RestaurantTable  restaurantTable3;
     List<RestaurantTable> myTables;
-
+    Transaction transaction;
+    Transaction transaction2;
+    Transaction transaction3;
+    List myTransactions;
 
     @Before
     public void setUp()  {
@@ -29,8 +35,15 @@ public class BookingTest {
         restaurantTable2 = new RestaurantTable(2, 2);
         restaurantTable3 = new RestaurantTable(3, 103);
         myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
-
+        transaction = new Transaction(new Date(20190601), 50, 50, customer, booking1 );
+        transaction2 = new Transaction(new Date(20190602), 150, 50, customer, booking2 );
+        transaction3 = new Transaction(new Date(20190605), 500, 500, customer, booking3 );
+        myTransactions = new ArrayList<Transaction>(Arrays.asList((transaction2), (transaction3)));
         booking = new Booking(new Date(20190601), "1800", 103, "GF");
+        booking1 = new Booking(new Date(20190601), "1800", 103, "GF");
+        booking2 = new Booking(new Date(20190602), "1900", 5, "Birthday party, make a cake");
+        booking3 = new Booking(new Date(20190603), "2000", 2, "allergic to peanuts");
+
     }
 
     @Test
@@ -177,6 +190,85 @@ public class BookingTest {
         assertEquals(6, booking.countSeating());
         booking.addRestaurantTable(restaurantTable3);
         assertEquals(109, booking.countSeating());
+
+    }
+
+    @Test
+    public void getTransactions() {
+        assertEquals(true, booking.getTransactions().isEmpty());
+    }
+
+    @Test
+    public void setTransactions() {
+        booking.setTransactions(myTransactions);
+        assertEquals(transaction2, booking.getTransactions().get(0));
+    }
+
+    @Test
+    public void addTransaction() {
+        booking.addTransaction(transaction);
+        assertEquals(transaction, booking.getTransactions().get(0));
+
+    }
+
+    @Test
+    public void removeTransaction() {
+        booking.setTransactions(myTransactions);
+        assertEquals(transaction2, booking.getTransactions().get(0));
+        booking.removeTransaction(transaction2);
+        assertEquals(transaction3, booking.getTransactions().get(0));
+
+    }
+
+    @Test
+    public void countTransactions() {
+        booking.setTransactions(myTransactions);
+        assertEquals(2, booking.countTransactions());
+    }
+
+    @Test
+    public void getTransactionById() {
+        transaction.setId((long) 7);
+        transaction2.setId((long) 17);
+        transaction3.setId((long) 27);
+        booking.setTransactions(myTransactions);
+        booking.addTransaction(transaction);
+        assertEquals(transaction3, booking.getTransactionById((long) 27));
+
+    }
+
+    @Test
+    public void removeTransactionById() {
+        transaction.setId((long) 7);
+        transaction2.setId((long) 17);
+        transaction3.setId((long) 27);
+        booking.setTransactions(myTransactions);
+        booking.addTransaction(transaction);
+        assertEquals( transaction3, booking.getTransactions().get(1));
+        booking.removeTransactionById((long) 27);
+        assertEquals( transaction, booking.getTransactions().get(1));
+
+    }
+
+    @Test
+    public void hasNoTransactions() {
+        assertEquals(false, booking.hasTransactions());
+    }
+
+    @Test
+    public void hasTransactions() {
+        booking.addTransaction(transaction2);
+        assertEquals(true, booking.hasTransactions());
+
+    }
+
+    @Test
+    public void removeAllTransactions() {
+        booking.setTransactions(myTransactions);
+        booking.addTransaction(transaction);
+        assertEquals(3, booking.countTransactions());
+        booking.removeAllTransactions();
+        assertEquals(0, booking.countTransactions());
 
     }
 }

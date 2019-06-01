@@ -1,0 +1,30 @@
+To do / Questions:
+-------------------
+
+Test database operations with dataloader file.
+
+Look into Cascade options:
+    if we delete a customer or a table, we need to delete all their bookings
+
+Regarding the transactions table for extensions:
+Transaction class and relations could easily be added to the models.
+One customer to many transactions,
+One booking to many transactions.
+Rethinking the tables, I think there's no need for a booking-transactions join
+as booking_id could be stored in the transactions table
+without customer_ids having to match so they can be different.
+
+Then one customer can book, and the bill can be split or someone else can pay.
+
+We can then assign our VIP discount codes for any of the following:
+Customers with the most bookings (per date range or ever)
+Customers with the most transactions paid  (per date range or ever)
+Customers with the highest total spending  (per date range or ever)
+Customers who have booked for the most people in total (per date range or ever)
+Customer who has booked the highest number of people  (per date range or ever)
+
+We could also ban customers with too many warnings  (again, within a date range or ever)
+
+
+
+

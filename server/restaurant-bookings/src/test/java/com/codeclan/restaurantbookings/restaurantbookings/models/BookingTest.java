@@ -13,6 +13,7 @@ public class BookingTest {
 
     @Before
     public void setUp()  {
+
         booking = new Booking(new Date(20190601), "1800", 103, "GF");
     }
 

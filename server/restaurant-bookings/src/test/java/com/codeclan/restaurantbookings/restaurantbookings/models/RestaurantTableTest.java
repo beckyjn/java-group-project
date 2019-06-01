@@ -1,6 +1,7 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -145,5 +146,22 @@ public class RestaurantTableTest {
         restaurantTable.addBooking(booking3);
         assertEquals(booking1, restaurantTable.getBookingById((long) 127));
         assertNull(restaurantTable.getBookingById((long) 23));
+    }
+
+    @Ignore
+    @Test
+    public void canBeBookedOnDate() {
+        restaurantTable.addBooking(booking1);
+        assertEquals(new Date(20190614), booking1.getDate());
+        assertEquals(booking1, restaurantTable.getBookings().get(0));
+        assertEquals(1, restaurantTable.countBookings());
+        assertEquals(false, restaurantTable.isAvailableOnDate(new Date(20190614)));
+// date is displaying as Thu Jan 01 06:36:30 GMT 1970
+    }
+
+    @Test
+    public void canBeAvailableOnDate() {
+        restaurantTable.addBooking(booking1);
+        assertEquals(true, restaurantTable.isAvailableOnDate(new Date(20190514)));
     }
 }

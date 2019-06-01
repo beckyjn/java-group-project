@@ -6,6 +6,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -80,7 +81,7 @@ public class RestaurantTable {
     }
 
     public void removeBooking(Booking booking){
-        this.bookings.remove(booking);
+        if (bookings.contains(booking)) this.bookings.remove(booking);
     }
 
     public int countBookings(){
@@ -107,4 +108,16 @@ public class RestaurantTable {
     public void removeAllBookings(){
         bookings.clear();
     }
+
+    public boolean isAvailableOnDate(Date date){
+//        date = new Date(20190614);
+//        date = new Date(20190514);
+//        System.out.println(date);
+        for (Booking booking : bookings)
+            if (booking.getDate() == date) return false;
+        return true;
+    }
+    // TODO add checking by time as well later
+//   eg if ((booking.getDate() == date) && (booking.getTimeslot == timeslot)) return false;
+// TODO update with correct date formatting if necessary
 }

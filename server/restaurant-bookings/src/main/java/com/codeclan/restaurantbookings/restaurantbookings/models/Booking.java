@@ -43,6 +43,8 @@ public class Booking {
     public Booking() {
     }
 
+    // TODO make sure booking is updated if customer or table is updated / deleted
+
     public Long getId() {
         return id;
     }
@@ -89,5 +91,9 @@ public class Booking {
 
     public Customer getCustomer(){
         return this.customer;
+    }
+
+    public void removeRestaurantTableById(Long id){
+
     }
 }

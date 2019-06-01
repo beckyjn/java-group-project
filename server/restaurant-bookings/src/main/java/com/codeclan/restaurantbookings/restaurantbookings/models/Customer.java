@@ -99,10 +99,8 @@ public class Customer {
     }
 
     public void removeBookingById(Long id){
-        for (Booking booking : bookings)
-            if ((booking.getId() == id)) {
-                bookings.remove(booking);
-            }
+        Booking bookingToFind = getBookingById(id);
+        if (bookingToFind != null) bookings.remove(bookingToFind);
     }
 
     public boolean hasBookings(){

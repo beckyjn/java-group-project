@@ -154,4 +154,6 @@ public class Booking {
             seating += restaurantTable.getSeating();
             return seating;
     }
+
+
 }

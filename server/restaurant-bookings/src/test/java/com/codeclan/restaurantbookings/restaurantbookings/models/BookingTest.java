@@ -10,9 +10,13 @@ import static org.junit.Assert.*;
 public class BookingTest {
 
     Booking booking;
+    Customer customer;
+    Customer customer2;
 
     @Before
     public void setUp()  {
+        customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
+        customer2 = new Customer("Annabel", "5553455345", "annabel@fakeemail.com");
 
         booking = new Booking(new Date(20190601), "1800", 103, "GF");
     }
@@ -65,4 +69,20 @@ public class BookingTest {
         booking.setNotes("Vegan");
         assertEquals("Vegan", booking.getNotes());
     }
+
+    @Test
+    public void getCustomer() {
+        assertNull(booking.getCustomer());
+    }
+
+    @Test
+    public void setCustomer() {
+        booking.setCustomer(customer);
+        assertEquals(customer, booking.getCustomer());
+        booking.setCustomer(customer2);
+        assertEquals(customer2, booking.getCustomer());
+
+    }
+
+
 }

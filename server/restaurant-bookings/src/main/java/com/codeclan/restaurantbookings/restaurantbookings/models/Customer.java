@@ -83,7 +83,7 @@ public class Customer {
     }
 
     public void removeBooking(Booking booking){
-        this.bookings.remove(booking);
+        if (bookings.contains(booking)) this.bookings.remove(booking);
     }
 
     public int countBookings(){

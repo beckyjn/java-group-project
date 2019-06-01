@@ -120,7 +120,7 @@ public class Booking {
     }
 
     public void removeRestaurantTable(RestaurantTable restaurantTable){
-        this.restaurantTables.remove(restaurantTable);
+        if (restaurantTables.contains(restaurantTable)) this.restaurantTables.remove(restaurantTable);
     }
 
     public int countRestaurantTables(){

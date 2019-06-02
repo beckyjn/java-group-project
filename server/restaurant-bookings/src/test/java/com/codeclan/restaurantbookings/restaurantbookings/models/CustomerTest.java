@@ -21,12 +21,16 @@ public class CustomerTest {
     Transaction transaction2;
     Transaction transaction3;
     List myTransactions;
+    List<RestaurantTable> myTables;
+    RestaurantTable restaurantTable;
+    RestaurantTable restaurantTable2;
 
     @Before
     public void setUp() {
-        booking1 = new Booking(new Date(20190601), "1800", 103, "GF");
-        booking2 = new Booking(new Date(20190602), "1900", 5, "Birthday party, make a cake");
-        booking3 = new Booking(new Date(20190603), "2000", 2, "allergic to peanuts");
+        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
+        booking2 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
+        booking3 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
+        myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         myBookings = new ArrayList<Booking>(Arrays.asList((booking1), (booking2)));
         transaction = new Transaction(new Date(20190601), 50, 50, customer, booking1 );
@@ -151,82 +155,82 @@ public class CustomerTest {
         assertEquals(false, customer.hasBookings());
     }
 
-    @Test
-    public void getTransactions() {
-        assertEquals(true, customer.getTransactions().isEmpty());
-    }
-
-    @Test
-    public void setTransactions() {
-        customer.setTransactions(myTransactions);
-        assertEquals(transaction2, customer.getTransactions().get(0));
-    }
-
-    @Test
-    public void addTransaction() {
-        customer.addTransaction(transaction);
-        assertEquals(transaction, customer.getTransactions().get(0));
-
-    }
-
-    @Test
-    public void removeTransaction() {
-        customer.setTransactions(myTransactions);
-        assertEquals(transaction2, customer.getTransactions().get(0));
-        customer.removeTransaction(transaction2);
-        assertEquals(transaction3, customer.getTransactions().get(0));
-
-    }
-
-    @Test
-    public void countTransactions() {
-        customer.setTransactions(myTransactions);
-        assertEquals(2, customer.countTransactions());
-    }
-
-    @Test
-    public void getTransactionById() {
-        transaction.setId((long) 7);
-        transaction2.setId((long) 17);
-        transaction3.setId((long) 27);
-        customer.setTransactions(myTransactions);
-        customer.addTransaction(transaction);
-        assertEquals(transaction3, customer.getTransactionById((long) 27));
-
-    }
-
-    @Test
-    public void removeTransactionById() {
-        transaction.setId((long) 7);
-        transaction2.setId((long) 17);
-        transaction3.setId((long) 27);
-        customer.setTransactions(myTransactions);
-        customer.addTransaction(transaction);
-        assertEquals( transaction3, customer.getTransactions().get(1));
-        customer.removeTransactionById((long) 27);
-        assertEquals( transaction, customer.getTransactions().get(1));
-
-    }
-
-    @Test
-    public void hasNoTransactions() {
-        assertEquals(false, customer.hasTransactions());
-    }
-
-    @Test
-    public void hasTransactions() {
-        customer.addTransaction(transaction2);
-        assertEquals(true, customer.hasTransactions());
-
-    }
-
-    @Test
-    public void removeAllTransactions() {
-        customer.setTransactions(myTransactions);
-        customer.addTransaction(transaction);
-        assertEquals(3, customer.countTransactions());
-        customer.removeAllTransactions();
-        assertEquals(0, customer.countTransactions());
-
-    }
+//    @Test
+//    public void getTransactions() {
+//        assertEquals(true, customer.getTransactions().isEmpty());
+//    }
+//
+//    @Test
+//    public void setTransactions() {
+//        customer.setTransactions(myTransactions);
+//        assertEquals(transaction2, customer.getTransactions().get(0));
+//    }
+//
+//    @Test
+//    public void addTransaction() {
+//        customer.addTransaction(transaction);
+//        assertEquals(transaction, customer.getTransactions().get(0));
+//
+//    }
+//
+//    @Test
+//    public void removeTransaction() {
+//        customer.setTransactions(myTransactions);
+//        assertEquals(transaction2, customer.getTransactions().get(0));
+//        customer.removeTransaction(transaction2);
+//        assertEquals(transaction3, customer.getTransactions().get(0));
+//
+//    }
+//
+//    @Test
+//    public void countTransactions() {
+//        customer.setTransactions(myTransactions);
+//        assertEquals(2, customer.countTransactions());
+//    }
+//
+//    @Test
+//    public void getTransactionById() {
+//        transaction.setId((long) 7);
+//        transaction2.setId((long) 17);
+//        transaction3.setId((long) 27);
+//        customer.setTransactions(myTransactions);
+//        customer.addTransaction(transaction);
+//        assertEquals(transaction3, customer.getTransactionById((long) 27));
+//
+//    }
+//
+//    @Test
+//    public void removeTransactionById() {
+//        transaction.setId((long) 7);
+//        transaction2.setId((long) 17);
+//        transaction3.setId((long) 27);
+//        customer.setTransactions(myTransactions);
+//        customer.addTransaction(transaction);
+//        assertEquals( transaction3, customer.getTransactions().get(1));
+//        customer.removeTransactionById((long) 27);
+//        assertEquals( transaction, customer.getTransactions().get(1));
+//
+//    }
+//
+//    @Test
+//    public void hasNoTransactions() {
+//        assertEquals(false, customer.hasTransactions());
+//    }
+//
+//    @Test
+//    public void hasTransactions() {
+//        customer.addTransaction(transaction2);
+//        assertEquals(true, customer.hasTransactions());
+//
+//    }
+//
+//    @Test
+//    public void removeAllTransactions() {
+//        customer.setTransactions(myTransactions);
+//        customer.addTransaction(transaction);
+//        assertEquals(3, customer.countTransactions());
+//        customer.removeAllTransactions();
+//        assertEquals(0, customer.countTransactions());
+//
+//    }
 }

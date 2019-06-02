@@ -28,16 +28,16 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
+//    private List<Transaction> transactions;
 
     public Customer(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.bookings = new ArrayList<>();
-        this.transactions = new ArrayList<>();
+//        this.transactions = new ArrayList<>();
 
     }
 
@@ -118,44 +118,44 @@ public class Customer {
     }
 
 
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
-
-    public void addTransaction(Transaction transaction){
-        this.transactions.add(transaction);
-    }
-
-    public void removeTransaction(Transaction transaction){
-        if (transactions.contains(transaction)) this.transactions.remove(transaction);
-    }
-
-    public int countTransactions(){
-        return transactions.size();
-    }
-
-    public Transaction getTransactionById(Long id){
-        for (Transaction transaction : transactions)
-            if ((transaction.getId() == id)) {
-                return transaction;
-            }
-        return null;
-    }
-
-    public void removeTransactionById(Long id){
-        Transaction transactionToFind = getTransactionById(id);
-        if (transactionToFind != null) transactions.remove(transactionToFind);
-    }
-
-    public boolean hasTransactions(){
-        return (transactions.size() > 0);
-    }
-
-    public void removeAllTransactions(){
-        transactions.clear();
-    }
+//    public List<Transaction> getTransactions() {
+//        return transactions;
+//    }
+//
+//    public void setTransactions(List<Transaction> transactions) {
+//        this.transactions = transactions;
+//    }
+//
+//    public void addTransaction(Transaction transaction){
+//        this.transactions.add(transaction);
+//    }
+//
+//    public void removeTransaction(Transaction transaction){
+//        if (transactions.contains(transaction)) this.transactions.remove(transaction);
+//    }
+//
+//    public int countTransactions(){
+//        return transactions.size();
+//    }
+//
+//    public Transaction getTransactionById(Long id){
+//        for (Transaction transaction : transactions)
+//            if ((transaction.getId() == id)) {
+//                return transaction;
+//            }
+//        return null;
+//    }
+//
+//    public void removeTransactionById(Long id){
+//        Transaction transactionToFind = getTransactionById(id);
+//        if (transactionToFind != null) transactions.remove(transactionToFind);
+//    }
+//
+//    public boolean hasTransactions(){
+//        return (transactions.size() > 0);
+//    }
+//
+//    public void removeAllTransactions(){
+//        transactions.clear();
+//    }
 }

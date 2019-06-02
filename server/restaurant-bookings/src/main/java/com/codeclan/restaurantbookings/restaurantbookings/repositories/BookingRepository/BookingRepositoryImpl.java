@@ -31,7 +31,7 @@ public class BookingRepositoryImpl implements BookingRepositoryCustom {
 //        return results;
 //    }
 
-    public List<Booking> getBookingByDateTimeAndCustomerId(Date date, String time, Customer customerId) {
+    public List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId) {
         List<Booking> result = null;
 
         Session session = entityManager.unwrap(Session.class);

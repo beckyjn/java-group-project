@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long>, BookingRepositoryCustom {
 //    List<Booking> getAllBookingsForDate(Date date);
-    List<Booking> findAllBookingsByDate(Date date);
+    List<Booking> findAllBookingsByDate(String date);
 
-    List<Booking> getBookingByDateTimeAndCustomerId(Date date, String time, Customer customerId);
+    List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId);
 
 }

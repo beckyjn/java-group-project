@@ -20,12 +20,12 @@ public class BookingController {
     BookingRepository bookingRepository;
 
     @GetMapping(value="/date/{date}")
-    public List<Booking> getAllBookingsForDate(@PathVariable Date date) {
+    public List<Booking> getAllBookingsForDate(@PathVariable String date) {
         return bookingRepository.findAllBookingsByDate(date);
     }
 
     @GetMapping(value="/date/{date}/time/{time}/customer/{customerId}")
-    public List<Booking> getBookingByDateTimeAndCustomerId(@PathVariable Date date, @PathVariable String time, @PathVariable Customer customerId) {
+    public List<Booking> getBookingByDateTimeAndCustomerId(@PathVariable String date, @PathVariable String time, @PathVariable Customer customerId) {
         return bookingRepository.getBookingByDateTimeAndCustomerId(date, time, customerId);
     }
 }

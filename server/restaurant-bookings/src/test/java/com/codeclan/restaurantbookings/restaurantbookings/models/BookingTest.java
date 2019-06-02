@@ -192,82 +192,82 @@ public class BookingTest {
 
     }
 
-    @Test
-    public void getTransactions() {
-        assertEquals(true, booking.getTransactions().isEmpty());
-    }
-
-    @Test
-    public void setTransactions() {
-        booking.setTransactions(myTransactions);
-        assertEquals(transaction2, booking.getTransactions().get(0));
-    }
-
-    @Test
-    public void addTransaction() {
-        booking.addTransaction(transaction);
-        assertEquals(transaction, booking.getTransactions().get(0));
-
-    }
-
-    @Test
-    public void removeTransaction() {
-        booking.setTransactions(myTransactions);
-        assertEquals(transaction2, booking.getTransactions().get(0));
-        booking.removeTransaction(transaction2);
-        assertEquals(transaction3, booking.getTransactions().get(0));
-
-    }
-
-    @Test
-    public void countTransactions() {
-        booking.setTransactions(myTransactions);
-        assertEquals(2, booking.countTransactions());
-    }
-
-    @Test
-    public void getTransactionById() {
-        transaction.setId((long) 7);
-        transaction2.setId((long) 17);
-        transaction3.setId((long) 27);
-        booking.setTransactions(myTransactions);
-        booking.addTransaction(transaction);
-        assertEquals(transaction3, booking.getTransactionById((long) 27));
-
-    }
-
-    @Test
-    public void removeTransactionById() {
-        transaction.setId((long) 7);
-        transaction2.setId((long) 17);
-        transaction3.setId((long) 27);
-        booking.setTransactions(myTransactions);
-        booking.addTransaction(transaction);
-        assertEquals( transaction3, booking.getTransactions().get(1));
-        booking.removeTransactionById((long) 27);
-        assertEquals( transaction, booking.getTransactions().get(1));
-
-    }
-
-    @Test
-    public void hasNoTransactions() {
-        assertEquals(false, booking.hasTransactions());
-    }
-
-    @Test
-    public void hasTransactions() {
-        booking.addTransaction(transaction2);
-        assertEquals(true, booking.hasTransactions());
-
-    }
-
-    @Test
-    public void removeAllTransactions() {
-        booking.setTransactions(myTransactions);
-        booking.addTransaction(transaction);
-        assertEquals(3, booking.countTransactions());
-        booking.removeAllTransactions();
-        assertEquals(0, booking.countTransactions());
-
-    }
+//    @Test
+//    public void getTransactions() {
+//        assertEquals(true, booking.getTransactions().isEmpty());
+//    }
+//
+//    @Test
+//    public void setTransactions() {
+//        booking.setTransactions(myTransactions);
+//        assertEquals(transaction2, booking.getTransactions().get(0));
+//    }
+//
+//    @Test
+//    public void addTransaction() {
+//        booking.addTransaction(transaction);
+//        assertEquals(transaction, booking.getTransactions().get(0));
+//
+//    }
+//
+//    @Test
+//    public void removeTransaction() {
+//        booking.setTransactions(myTransactions);
+//        assertEquals(transaction2, booking.getTransactions().get(0));
+//        booking.removeTransaction(transaction2);
+//        assertEquals(transaction3, booking.getTransactions().get(0));
+//
+//    }
+//
+//    @Test
+//    public void countTransactions() {
+//        booking.setTransactions(myTransactions);
+//        assertEquals(2, booking.countTransactions());
+//    }
+//
+//    @Test
+//    public void getTransactionById() {
+//        transaction.setId((long) 7);
+//        transaction2.setId((long) 17);
+//        transaction3.setId((long) 27);
+//        booking.setTransactions(myTransactions);
+//        booking.addTransaction(transaction);
+//        assertEquals(transaction3, booking.getTransactionById((long) 27));
+//
+//    }
+//
+//    @Test
+//    public void removeTransactionById() {
+//        transaction.setId((long) 7);
+//        transaction2.setId((long) 17);
+//        transaction3.setId((long) 27);
+//        booking.setTransactions(myTransactions);
+//        booking.addTransaction(transaction);
+//        assertEquals( transaction3, booking.getTransactions().get(1));
+//        booking.removeTransactionById((long) 27);
+//        assertEquals( transaction, booking.getTransactions().get(1));
+//
+//    }
+//
+//    @Test
+//    public void hasNoTransactions() {
+//        assertEquals(false, booking.hasTransactions());
+//    }
+//
+//    @Test
+//    public void hasTransactions() {
+//        booking.addTransaction(transaction2);
+//        assertEquals(true, booking.hasTransactions());
+//
+//    }
+//
+//    @Test
+//    public void removeAllTransactions() {
+//        booking.setTransactions(myTransactions);
+//        booking.addTransaction(transaction);
+//        assertEquals(3, booking.countTransactions());
+//        booking.removeAllTransactions();
+//        assertEquals(0, booking.countTransactions());
+//
+//    }
 }

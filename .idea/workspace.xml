@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,6 +55,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -73,141 +74,11 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,7 +118,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26494345" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26898223" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -286,7 +157,7 @@
     <entry file="file://$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,0 +1,4 @@
+package com.codeclan.restaurantbookings.restaurantbookings.repositories.RestaurantTableRepository;
+
+public class RestaurantTableRepositoryImpl implements RestaurantTableRepositoryCustom {
+}

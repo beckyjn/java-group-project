@@ -1,7 +1,6 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Date;
 
 @Entity

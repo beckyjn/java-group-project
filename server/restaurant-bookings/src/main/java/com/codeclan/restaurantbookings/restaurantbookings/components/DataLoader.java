@@ -1,16 +1,21 @@
 package com.codeclan.restaurantbookings.restaurantbookings.components;
 
+import com.codeclan.restaurantbookings.restaurantbookings.models.Booking;
 import com.codeclan.restaurantbookings.restaurantbookings.models.Customer;
 import com.codeclan.restaurantbookings.restaurantbookings.models.RestaurantTable;
+import com.codeclan.restaurantbookings.restaurantbookings.repositories.BookingRepository.BookingRepository;
+import com.codeclan.restaurantbookings.restaurantbookings.repositories.CustomerRepository.CustomerRepository;
+import com.codeclan.restaurantbookings.restaurantbookings.repositories.RestaurantTableRepository.RestaurantTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.awt.print.Book;
-import java.util.Date;
+import java.util.*;
 
 @Component
-public class DataLoader implements AppplicationRunner {
+public class DataLoader implements ApplicationRunner {
 
     @Autowired
     BookingRepository bookingRepository;
@@ -51,12 +56,14 @@ public class DataLoader implements AppplicationRunner {
         Customer customer5 = new Customer("Charlie", "01314411321", "Charlie@codeclan.com");
         customerRepository.save(customer5);
 
+        List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2)));
+
         // 3 bookings:
-        Booking booking1 = new Booking(Date(25/11/2019), 7, 20, "Graduation dinner" );
+        Booking booking1 = new Booking(customer1, "01-06-2019", "17:00", 20, "Graduation dinner", myTables);
         bookingRepository.save(booking1);
-        Booking booking2 = new Booking(Date(25/11/2019), 7, 3, "" );
+        Booking booking2 = new Booking(customer1, "01-06-2019", "17:00", 3, "", myTables );
         bookingRepository.save(booking2);
-        Booking booking3 = new Booking(Date(25/11/2019), 7, 1, "Window seat if possible" );
+        Booking booking3 = new Booking(customer1, "01-06-2019", "17:00", 1, "Window seat if possible", myTables );
         bookingRepository.save(booking3);
 
     }

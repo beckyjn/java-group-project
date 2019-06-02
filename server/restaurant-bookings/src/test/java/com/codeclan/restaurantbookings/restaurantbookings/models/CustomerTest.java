@@ -21,12 +21,16 @@ public class CustomerTest {
     Transaction transaction2;
     Transaction transaction3;
     List myTransactions;
+    List<RestaurantTable> myTables;
+    RestaurantTable restaurantTable;
+    RestaurantTable restaurantTable2;
 
     @Before
     public void setUp() {
-        booking1 = new Booking(new Date(20190601), "1800", 103, "GF");
-        booking2 = new Booking(new Date(20190602), "1900", 5, "Birthday party, make a cake");
-        booking3 = new Booking(new Date(20190603), "2000", 2, "allergic to peanuts");
+        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
+        booking2 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
+        booking3 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
+        myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         myBookings = new ArrayList<Booking>(Arrays.asList((booking1), (booking2)));
         transaction = new Transaction(new Date(20190601), 50, 50, customer, booking1 );

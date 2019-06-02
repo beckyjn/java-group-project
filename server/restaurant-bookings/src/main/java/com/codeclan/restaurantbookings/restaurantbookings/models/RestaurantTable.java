@@ -109,7 +109,7 @@ public class RestaurantTable {
         bookings.clear();
     }
 
-    public boolean isAvailableOnDate(Date date){
+    public boolean isAvailableOnDate(String date){
 //        date = new Date(20190614);
 //        date = new Date(20190514);
 //        System.out.println(date);

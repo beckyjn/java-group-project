@@ -3,7 +3,10 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -11,15 +14,22 @@ public class TransactionTest {
 
     Transaction transaction;
     Booking booking;
-    Booking booking2;
+    Booking booking1;
     Customer customer;
     Customer customer2;
+    List<RestaurantTable> myTables;
+    RestaurantTable restaurantTable;
+    RestaurantTable restaurantTable2;
+
 
 
     @Before
     public void setUp() throws Exception {
-        booking = new Booking(new Date(20190601), "1800", 103, "GF");
-        booking2 = new Booking(new Date(20190602), "1900", 5, "Birthday party, make a cake");
+        myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
+        restaurantTable = new RestaurantTable(1, 4);
+        restaurantTable2 = new RestaurantTable(2, 2);
+        booking = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
+        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         customer2 = new Customer("Annabel", "5553455345", "annabel@fakeemail.com");
         transaction = new Transaction(new Date(20190601), 50, 50, customer, booking );
@@ -103,8 +113,8 @@ public class TransactionTest {
 
     @Test
     public void setBooking() {
-        transaction.setBooking(booking2);
-        assertEquals(booking2, transaction.getBooking());
+        transaction.setBooking(booking1);
+        assertEquals(booking1, transaction.getBooking());
     }
 
     @Test

@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3829e73-d1bc-4d03-a752-9f39af222687" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/controllers/BookingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/controllers/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/controllers/RestaurantTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/BookingRepository/BookingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/BookingRepository/BookingRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/BookingRepository/BookingRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/CustomerRepository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/CustomerRepository/CustomerRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/CustomerRepository/CustomerRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/RestaurantTableRepository/RestaurantTableRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/RestaurantTableRepository/RestaurantTableRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/repositories/RestaurantTableRepository/RestaurantTableRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/components/DataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/restaurant-bookings/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/restaurant-bookings/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -35,10 +22,28 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
@@ -50,7 +55,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,6 +169,20 @@
               <item name="codeclan" type="462c0819:PsiDirectoryNode" />
               <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
               <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-group-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-group-project" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurant-bookings" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="codeclan" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurantbookings" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -188,12 +206,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -223,7 +247,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2609047" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26494345" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -244,7 +268,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info active="true" anchor="right" id="Maven" order="4" visible="true" weight="0.32956383" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -256,6 +280,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/restaurant-bookings/src/main/java/com/codeclan/restaurantbookings/restaurantbookings/models/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

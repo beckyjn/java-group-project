@@ -18,12 +18,24 @@ public class RestaurantTableTest {
     Booking booking2;
     Booking booking3;
     List myBookings;
+    Customer customer;
+    Customer customer2;
+    List<RestaurantTable> myTables;
+    RestaurantTable restaurantTable2;
+    RestaurantTable restaurantTable3;
+
 
     @Before
     public void setUp() {
-        booking1 = new Booking(new Date(20190614), "2300", 30, "Graduation");
-        booking2 = new Booking(new Date(20190612), "1900", 5, "Vegan");
-        booking3 = new Booking(new Date(20200603), "2000", 21, "allergic to peanuts");
+        customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
+        customer2 = new Customer("Annabel", "5553455345", "annabel@fakeemail.com");
+        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
+        booking2 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
+        booking3 = new Booking(customer, "01-06-2019", "2000", 2, "allergic to peanuts", myTables);
+        restaurantTable = new RestaurantTable(1, 4);
+        restaurantTable2 = new RestaurantTable(2, 2);
+        restaurantTable3 = new RestaurantTable(3, 103);
+        myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
         restaurantTable = new RestaurantTable(1, 4);
         myBookings = new ArrayList<Booking>(Arrays.asList((booking1), (booking2)));
 
@@ -148,20 +160,20 @@ public class RestaurantTableTest {
         assertNull(restaurantTable.getBookingById((long) 23));
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void canBeBookedOnDate() {
         restaurantTable.addBooking(booking1);
-        assertEquals(new Date(20190614), booking1.getDate());
+        assertEquals("01-06-2019", booking1.getDate());
         assertEquals(booking1, restaurantTable.getBookings().get(0));
         assertEquals(1, restaurantTable.countBookings());
-        assertEquals(false, restaurantTable.isAvailableOnDate(new Date(20190614)));
+        assertEquals(false, restaurantTable.isAvailableOnDate("01-06-2019"));
 // date is displaying as Thu Jan 01 06:36:30 GMT 1970
     }
 
     @Test
     public void canBeAvailableOnDate() {
         restaurantTable.addBooking(booking1);
-        assertEquals(true, restaurantTable.isAvailableOnDate(new Date(20190514)));
+        assertEquals(true, restaurantTable.isAvailableOnDate("01-07-2019"));
     }
 }

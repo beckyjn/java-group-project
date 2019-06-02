@@ -1,6 +1,7 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ public class Booking {
     private Long id;
 
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     @Column(name = "time")
     private String time;
@@ -28,12 +29,12 @@ public class Booking {
     @Column(name = "notes")
     private String notes;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("booking") //TODO double check booking/bookings
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("booking")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -46,13 +47,13 @@ public class Booking {
     @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
     private List<Transaction> transactions;
 
-    public Booking(Date date, String time, int numberInParty, String notes) {
+    public Booking(Customer customer, String date, String time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
         this.date = date;
         this.time = time;
         this.numberInParty = numberInParty;
         this.notes = notes;
         this.customer = customer;
-        this.restaurantTables = new ArrayList<>();
+        this.restaurantTables = restaurantTables;
         this.transactions = new ArrayList<>();
     }
 
@@ -70,11 +71,11 @@ public class Booking {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

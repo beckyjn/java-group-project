@@ -9,7 +9,7 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
-    const url = "localhost:8080/bookings";
+    const url = "/bookings";
 
     fetch(url).then(res => {
       res.json().then(bookings => {

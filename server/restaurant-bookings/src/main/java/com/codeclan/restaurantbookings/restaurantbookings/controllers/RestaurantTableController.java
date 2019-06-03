@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/restaurant-tables")
+@RequestMapping(value = "/restaurant-tables", name="RestaurantTableController")
 public class RestaurantTableController {
 
     @Autowired

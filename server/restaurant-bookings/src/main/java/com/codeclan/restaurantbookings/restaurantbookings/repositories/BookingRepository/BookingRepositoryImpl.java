@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class BookingRepositoryImpl implements BookingRepositoryCustom {
     @Autowired
     EntityManager entityManager;
 
-    public List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId) {
+    @Transactional
+    public List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Long customerId) {
         List<Booking> result = null;
 
         Session session = entityManager.unwrap(Session.class);
@@ -26,7 +28,7 @@ public class BookingRepositoryImpl implements BookingRepositoryCustom {
             Criteria cr = session.createCriteria(Booking.class);
             cr.add(Restrictions.eq("date", date));
             cr.add(Restrictions.eq("time", time));
-            cr.add(Restrictions.eq("customer", customerId));
+            cr.add(Restrictions.eq("customer.id", customerId));
             result = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -34,13 +36,14 @@ public class BookingRepositoryImpl implements BookingRepositoryCustom {
         return result;
     }
 
-    public List<Booking> getBookingsByCustomerId(Customer customerId) {
+    @Transactional
+    public List<Booking> getBookingsByCustomerId(Long customerId) {
         List<Booking> result = null;
 
         Session session = entityManager.unwrap(Session.class);
         try{
             Criteria cr = session.createCriteria(Booking.class);
-            cr.add(Restrictions.eq("customer", customerId));
+            cr.add(Restrictions.eq("customer.id", customerId));
             result = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();

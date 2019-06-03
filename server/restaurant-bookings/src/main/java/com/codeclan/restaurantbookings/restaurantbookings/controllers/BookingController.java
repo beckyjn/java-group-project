@@ -25,12 +25,12 @@ public class BookingController {
     }
 
     @GetMapping(value="/date/{date}/time/{time}/customer/{customerId}")
-    public List<Booking> getBookingByDateTimeAndCustomerId(@PathVariable String date, @PathVariable String time, @PathVariable Customer customerId) {
+    public List<Booking> getBookingByDateTimeAndCustomerId(@PathVariable String date, @PathVariable String time, @PathVariable Long customerId) {
         return bookingRepository.getBookingByDateTimeAndCustomerId(date, time, customerId);
     }
 
     @GetMapping(value="/customer/{customerId}")
-    public List<Booking> getBookingsByCustomerId(@PathVariable Customer customerId){
+    public List<Booking> getBookingsByCustomerId(@PathVariable Long customerId){
         return bookingRepository.getBookingsByCustomerId(customerId);
     }
 }

@@ -71,7 +71,17 @@ public class RestaurantBookingsApplicationTests {
 		assertEquals("Annabel", foundCustomer.get(0).getName());
 	}
 
-
+	@Test
+	public void canFindAllRestaurantTablesWithANumberOfSeatings() {
+		List<RestaurantTable> foundTables = restaurantTableRepository.findTablesBySeating(4);
+		assertEquals(6, foundTables.size());
+		assertEquals(1, foundTables.get(0).getTableNumber());
+		assertEquals(2, foundTables.get(1).getTableNumber());
+		assertEquals(3, foundTables.get(2).getTableNumber());
+		assertEquals(4, foundTables.get(3).getTableNumber());
+		assertEquals(5, foundTables.get(4).getTableNumber());
+		assertEquals(6, foundTables.get(5).getTableNumber());
+	}
 
 
 }

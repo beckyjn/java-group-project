@@ -14,11 +14,11 @@ import java.util.List;
 @Repository
 @RepositoryRestResource(excerptProjection = EmbedAllForBookings.class)
 public interface BookingRepository extends JpaRepository<Booking, Long>, BookingRepositoryCustom {
-//    List<Booking> getAllBookingsForDate(Date date);
+
     List<Booking> findAllBookingsByDate(String date);
 
-    List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId);
+    List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Long customerId);
 
-    List<Booking> getBookingsByCustomerId(Customer customerId);
+    List<Booking> getBookingsByCustomerId(Long customerId);
 
 }

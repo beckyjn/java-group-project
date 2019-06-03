@@ -1,8 +1,10 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,7 +16,7 @@ public class Transaction {
     private Long id;
 
     @Column(name = "date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "amount_paid")
     private int amountPaid;
@@ -38,7 +40,7 @@ public class Transaction {
     @JoinColumn(name = "booking_id", nullable = false)
     private Booking booking;
 
-    public Transaction(Date date, int amountOwing, int amountPaid, Customer customer, Booking booking){
+    public Transaction(LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking){
         this.date = date;
         this.amountPaid = amountPaid;
         this.amountOwing = amountOwing;
@@ -60,12 +62,13 @@ public class Transaction {
         this.id = id;
     }
 
-    public Date getDate() {
+    @JsonFormat(pattern="dd-MM-yyyy")
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String dateString) {
+        this.date = LocalDate.parse(dateString);
     }
 
     public int getAmountPaid() {

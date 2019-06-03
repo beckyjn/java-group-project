@@ -83,5 +83,10 @@ public class RestaurantBookingsApplicationTests {
 		assertEquals(6, foundTables.get(5).getTableNumber());
 	}
 
+//	@Test
+//	public void canFindAParticularBookingByDateTimeAndCustomerId() {
+//		List<Booking> foundBooking = bookingRepository.getBookingByDateTimeAndCustomerId("01-06-2019", "1700", 3L);
+//	}
+
 
 }

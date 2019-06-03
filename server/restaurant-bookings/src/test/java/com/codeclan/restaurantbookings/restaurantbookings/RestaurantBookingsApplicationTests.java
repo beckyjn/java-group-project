@@ -6,6 +6,7 @@ import com.codeclan.restaurantbookings.restaurantbookings.models.RestaurantTable
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.BookingRepository.BookingRepository;
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.CustomerRepository.CustomerRepository;
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.RestaurantTableRepository.RestaurantTableRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class RestaurantBookingsApplicationTests {
 
 	@Autowired
 	RestaurantTableRepository restaurantTableRepository;
+
+	Customer customer3;
+
+	@Before
+	public void setUp() {
+		customer3 = new Customer("Maria", "07293940234", "Maria@codeclan.com");
+	}
 
 	@Test
 	public void contextLoads() {
@@ -85,7 +93,8 @@ public class RestaurantBookingsApplicationTests {
 
 //	@Test
 //	public void canFindAParticularBookingByDateTimeAndCustomerId() {
-//		List<Booking> foundBooking = bookingRepository.getBookingByDateTimeAndCustomerId("01-06-2019", "1700", 3L);
+//		List<Booking> foundBooking = bookingRepository.getBookingByDateTimeAndCustomerId("01-06-2019", "1700", customer3);
+//		assertEquals(1, foundBooking.size());
 //	}
 
 

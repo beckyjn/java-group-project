@@ -18,20 +18,6 @@ public class BookingRepositoryImpl implements BookingRepositoryCustom {
     @Autowired
     EntityManager entityManager;
 
-//    public List<Booking> getAllBookingsForDate(Date date) {
-//        List<Booking> results = null;
-//
-//        Session session = entityManager.unwrap(Session.class);
-//        try{
-//            Criteria cr = session.createCriteria(Booking.class);
-//            cr.add(Restrictions.eq("date", date));
-//            results = cr.list();
-//        } catch (HibernateException ex) {
-//            ex.printStackTrace();
-//        }
-//        return results;
-//    }
-
     public List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId) {
         List<Booking> result = null;
 

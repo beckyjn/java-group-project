@@ -7,9 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface BookingRepositoryCustom {
-//    List<Booking> getAllBookingsForDate(Date date);
 
-    List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Customer customerId);
+    List<Booking> getBookingByDateTimeAndCustomerId(String date, String time, Long customerId);
 
-    List<Booking> getBookingsByCustomerId(Customer customerId);
+    List<Booking> getBookingsByCustomerId(Long customerId);
 }

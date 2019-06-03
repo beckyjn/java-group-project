@@ -32,12 +32,12 @@ public class Transaction {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "booking_id", nullable = false)
+    @JoinColumn(name = "booking_id", nullable = true)
     private Booking booking;
 
     public Transaction(LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking){

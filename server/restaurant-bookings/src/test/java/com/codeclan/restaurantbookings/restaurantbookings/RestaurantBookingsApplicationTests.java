@@ -51,5 +51,27 @@ public class RestaurantBookingsApplicationTests {
 		assertEquals(6, foundTables.size());
 	}
 
+	@Test
+	public void canFindBookingsForAGivenDate() {
+		List<Booking> foundBookings = bookingRepository.findAllBookingsByDate("01-06-2019");
+		assertEquals(3, foundBookings.size());
+	}
+
+	@Test
+	public void canFindCustomerByName() {
+		List<Customer> foundCustomer = customerRepository.findCustomerByName("Maria");
+		assertEquals(1, foundCustomer.size());
+		assertEquals("Maria", foundCustomer.get(0).getName());
+	}
+
+	@Test
+	public void canFindCustomerById() {
+		List<Customer> foundCustomer = customerRepository.findCustomerById(2L);
+		assertEquals(1, foundCustomer.size());
+		assertEquals("Annabel", foundCustomer.get(0).getName());
+	}
+
+
+
 
 }

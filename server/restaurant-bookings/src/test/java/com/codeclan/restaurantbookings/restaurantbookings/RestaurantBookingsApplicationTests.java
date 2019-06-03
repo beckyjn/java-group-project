@@ -97,5 +97,10 @@ public class RestaurantBookingsApplicationTests {
 //		assertEquals(1, foundBooking.size());
 //	}
 
+//	@Test
+//	public void canFindBookingsByCustomerId() {
+//		List<Booking> foundBookings = bookingRepository.getBookingsByCustomerId(customer3);
+//		assertEquals(1, foundBookings.size());
+//	}
 
 }

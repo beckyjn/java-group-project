@@ -2,7 +2,6 @@ package com.codeclan.restaurantbookings.restaurantbookings.repositories.Customer
 
 import com.codeclan.restaurantbookings.restaurantbookings.models.Customer;
 import com.codeclan.restaurantbookings.restaurantbookings.projections.EmbedBookings;
-import com.codeclan.restaurantbookings.restaurantbookings.projections.EmbedRestaurantTables;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;

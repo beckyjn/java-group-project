@@ -3,6 +3,8 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -28,11 +30,11 @@ public class TransactionTest {
         myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
         restaurantTable = new RestaurantTable(1, 4);
         restaurantTable2 = new RestaurantTable(2, 2);
-        booking = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
-        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
+        booking = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("18:00"), 103, "GF", myTables );
+        booking1 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("18:00"), 103, "GF", myTables);
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         customer2 = new Customer("Annabel", "5553455345", "annabel@fakeemail.com");
-        transaction = new Transaction(new Date(20190601), 50, 50, customer, booking );
+        transaction = new Transaction(LocalDate.parse("2019-06-01"), 50, 50, customer, booking );
     }
 
     @Test
@@ -48,13 +50,13 @@ public class TransactionTest {
 
     @Test
     public void getDate() {
-        assertEquals(new Date(20190601), transaction.getDate());
+        assertEquals(LocalDate.parse("2019-06-01"), transaction.getDate());
     }
 
     @Test
     public void setDate() {
-        transaction.setDate(new Date(20190501));
-        assertEquals(new Date(20190501), transaction.getDate());
+        transaction.setDate("2019-05-01");
+        assertEquals(LocalDate.parse("2019-05-01"), transaction.getDate());
 
     }
 

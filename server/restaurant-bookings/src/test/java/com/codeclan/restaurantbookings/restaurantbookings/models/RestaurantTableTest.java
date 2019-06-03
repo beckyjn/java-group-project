@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -29,9 +31,9 @@ public class RestaurantTableTest {
     public void setUp() {
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         customer2 = new Customer("Annabel", "5553455345", "annabel@fakeemail.com");
-        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
-        booking2 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
-        booking3 = new Booking(customer, "01-06-2019", "2000", 2, "allergic to peanuts", myTables);
+        booking1 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("18:00"), 103, "GF", myTables);
+        booking2 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 5, "Birthday party, make a cake", myTables);
+        booking3 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("20:00"), 2, "allergic to peanuts", myTables);
         restaurantTable = new RestaurantTable(1, 4);
         restaurantTable2 = new RestaurantTable(2, 2);
         restaurantTable3 = new RestaurantTable(3, 103);
@@ -164,16 +166,16 @@ public class RestaurantTableTest {
     @Test
     public void canBeBookedOnDate() {
         restaurantTable.addBooking(booking1);
-        assertEquals("01-06-2019", booking1.getDate());
+        assertEquals(LocalDate.parse("2019-06-01"), booking1.getDate());
         assertEquals(booking1, restaurantTable.getBookings().get(0));
         assertEquals(1, restaurantTable.countBookings());
-        assertEquals(false, restaurantTable.isAvailableOnDate("01-06-2019"));
+        assertEquals(false, restaurantTable.isAvailableOnDate("2019-06-01"));
 // date is displaying as Thu Jan 01 06:36:30 GMT 1970
     }
 
     @Test
     public void canBeAvailableOnDate() {
         restaurantTable.addBooking(booking1);
-        assertEquals(true, restaurantTable.isAvailableOnDate("01-07-2019"));
+        assertEquals(true, restaurantTable.isAvailableOnDate("2019-01-07"));
     }
 }

@@ -11,6 +11,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.awt.print.Book;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 @Component
@@ -57,14 +60,16 @@ public class DataLoader implements ApplicationRunner {
 
         List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2)));
 
+
+
         // 3 bookings:
-        Booking booking1 = new Booking(customer1, "01-06-2019", "1700", 20, "Graduation dinner", myTables);
+        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-10"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables);
         bookingRepository.save(booking1);
-        Booking booking2 = new Booking(customer2, "01-06-2019", "1700", 3, "", myTables );
+        Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
         bookingRepository.save(booking2);
-        Booking booking3 = new Booking(customer3, "01-06-2019", "1700", 1, "Window seat if possible", myTables );
+        Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables );
         bookingRepository.save(booking3);
-        Booking booking4 = new Booking(customer3, "05-06-2019", "1900", 2, "Not facing the toilet", myTables );
+        Booking booking4 = new Booking(customer3, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 2, "Not facing the toilet", myTables);
         bookingRepository.save(booking4);
 
     }

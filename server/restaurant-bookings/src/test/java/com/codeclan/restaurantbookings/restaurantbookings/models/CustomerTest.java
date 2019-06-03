@@ -3,6 +3,8 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -27,15 +29,15 @@ public class CustomerTest {
 
     @Before
     public void setUp() {
-        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
-        booking2 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
-        booking3 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
+        booking1 = new Booking(customer, LocalDate.parse("2019-06-05"), LocalTime.parse("17:00"), 103, "GF", myTables );
+        booking2 = new Booking(customer, LocalDate.parse("2019-06-05"), LocalTime.parse("18:00"), 103, "GF", myTables);
+        booking3 = new Booking(customer, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 5, "Birthday party, make a cake", myTables);
         myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
         customer = new Customer("Jordan", "5553381507", "jordan@fakeemail.com");
         myBookings = new ArrayList<Booking>(Arrays.asList((booking1), (booking2)));
-        transaction = new Transaction(new Date(20190601), 50, 50, customer, booking1 );
-        transaction2 = new Transaction(new Date(20190602), 150, 50, customer, booking2 );
-        transaction3 = new Transaction(new Date(20190605), 500, 500, customer, booking3 );
+        transaction = new Transaction(LocalDate.parse("2019-06-05"),  50, 50, customer, booking1 );
+        transaction2 = new Transaction(LocalDate.parse("2019-06-05"), 150, 50, customer, booking2 );
+        transaction3 = new Transaction(LocalDate.parse("2019-06-05"), 500, 500, customer, booking3 );
         myTransactions = new ArrayList<Transaction>(Arrays.asList((transaction2), (transaction3)));
 
     }

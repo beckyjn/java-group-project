@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/restaurant-tables")
+@RequestMapping("/tables")
 public class RestaurantTableController {
 
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
+
+    @GetMapping
+    public List<RestaurantTable> getAllRestaurantTables() {
+        return restaurantTableRepository.findAll();
+    }
 
     @GetMapping(value="/seating/{number}")
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){

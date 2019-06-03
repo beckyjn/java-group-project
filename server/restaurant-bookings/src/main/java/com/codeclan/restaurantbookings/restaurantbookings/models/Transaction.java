@@ -2,6 +2,7 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,12 +31,12 @@ public class Transaction {
     @Column(name = "warnings")
     private String warnings;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("booking")
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
-    @JsonIgnore
+    @JsonIgnoreProperties({"customer", "restaurantTables"})
     @ManyToOne
     @JoinColumn(name = "booking_id", nullable = true)
     private Booking booking;

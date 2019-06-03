@@ -3,6 +3,8 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -35,14 +37,14 @@ public class BookingTest {
         restaurantTable2 = new RestaurantTable(2, 2);
         restaurantTable3 = new RestaurantTable(3, 103);
         myTables = new ArrayList<RestaurantTable>(Arrays.asList((restaurantTable), (restaurantTable2)));
-        transaction = new Transaction(new Date(20190601), 50, 50, customer, booking1 );
-        transaction2 = new Transaction(new Date(20190602), 150, 50, customer, booking2 );
-        transaction3 = new Transaction(new Date(20190605), 500, 500, customer, booking3 );
+        transaction = new Transaction(LocalDate.parse("2019-06-05"), 50, 50, customer, booking1 );
+        transaction2 = new Transaction(LocalDate.parse("2019-06-05"),150, 50, customer, booking2 );
+        transaction3 = new Transaction(LocalDate.parse("2019-06-05"), 500, 500, customer, booking3 );
         myTransactions = new ArrayList<Transaction>(Arrays.asList((transaction2), (transaction3)));
-        booking = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables );
-        booking1 = new Booking(customer, "01-06-2019", "1800", 103, "GF", myTables);
-        booking2 = new Booking(customer, "01-06-2019", "1900", 5, "Birthday party, make a cake", myTables);
-        booking3 = new Booking(customer, "01-06-2019", "2000", 2, "allergic to peanuts", myTables);
+        booking = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("18:00"), 103, "GF", myTables );
+        booking1 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("18:00"),103, "GF", myTables);
+        booking2 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 5, "Birthday party, make a cake", myTables);
+        booking3 = new Booking(customer, LocalDate.parse("2019-06-01"), LocalTime.parse("20:00"), 2, "allergic to peanuts", myTables);
 
     }
 
@@ -53,24 +55,24 @@ public class BookingTest {
 
     @Test
     public void getDate() {
-        assertEquals("01-06-2019", booking.getDate());
+        assertEquals(LocalDate.parse("2019-06-01"), booking.getDate());
     }
 
     @Test
     public void setDate() {
-        booking.setDate("01-07-2019");
-        assertEquals("01-07-2019", booking.getDate());
+        booking.setDate("2019-01-07");
+        assertEquals(LocalDate.parse("2019-01-07"), booking.getDate());
     }
 
     @Test
     public void getTime() {
-        assertEquals("1800", booking.getTime());
+        assertEquals(LocalTime.parse("18:00"), booking.getTime());
     }
 
     @Test
     public void setTime() {
-        booking.setTime("1915");
-        assertEquals("1915", booking.getTime());
+        booking.setTime("19:15");
+        assertEquals(LocalTime.parse("19:15"), booking.getTime());
     }
 
     @Test

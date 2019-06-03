@@ -1,10 +1,13 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,10 +21,10 @@ public class Booking {
     private Long id;
 
     @Column(name = "date")
-    private String date;
+    private LocalDate date;
 
     @Column(name = "time")
-    private String time;
+    private LocalTime time;
 
     @Column(name = "number_in_party")
     private int numberInParty;
@@ -47,7 +50,7 @@ public class Booking {
 //    @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
 //    private List<Transaction> transactions;
 
-    public Booking(Customer customer, String date, String time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
+    public Booking(Customer customer, LocalDate date, LocalTime time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
         this.date = date;
         this.time = time;
         this.numberInParty = numberInParty;
@@ -71,20 +74,22 @@ public class Booking {
         this.id = id;
     }
 
-    public String getDate() {
+    @JsonFormat(pattern="dd-MM-yyyy")
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+
+    public void setDate(String dateString) {
+        this.date = LocalDate.parse(dateString);
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String timeString) {
+        this.time = LocalTime.parse(timeString);
     }
 
     public int getNumberInParty() {

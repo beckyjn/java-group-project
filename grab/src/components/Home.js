@@ -1,9 +1,10 @@
 import React from "react";
 
-const Home = () => {
+const Home = () => (
   <div>
-    <h1>G.R.A.B</h1>
-  </div>;
-};
+    <h4>Home</h4>
+    <p>G.R.A.B</p>
+  </div>
+);
 
 export default Home;

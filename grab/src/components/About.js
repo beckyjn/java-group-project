@@ -1,8 +1,10 @@
 import React from "react";
 
-const About = () => {
+const About = () => (
   <div>
     <h1>About G.R.A.B</h1>
     <p>G.R.A.B is the 'General Restaurant Application for Bookings system.</p>
-  </div>;
-};
+  </div>
+);
+
+export default About;

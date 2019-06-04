@@ -87,3 +87,39 @@ ul#datalist li:nth-child(odd) {
 ul#datalist li:nth-child(even) {
     background-color: white;
 }
+
+h1 {
+  width: 100%;
+  text-align: left;
+  display: block;
+}
+div#data-detail {
+  float: left;
+  padding: 2em;
+}
+
+table.data-table {
+  display: block;
+  clear: left;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border: 1px solid black;
+}
+
+table.data-table td {
+  padding: 1em;
+  text-align: left;
+}
+
+a.view-more-button {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: block;
+}

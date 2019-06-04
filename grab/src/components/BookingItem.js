@@ -3,7 +3,13 @@ import React from "react"
 const BookingItem = props => {
   return(
     <div>
-      <p>{props.date}</p>
+    <ul id="datalist">
+
+      <li>{props.time}</li>
+      <li>{props.date}</li>
+      <li>{props.name}</li>
+      <li>{props.partyNo}</li>
+    </ul>
     </div>
   )
 }

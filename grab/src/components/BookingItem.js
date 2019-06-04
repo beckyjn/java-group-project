@@ -2,7 +2,9 @@ import React from "react"
 
 const BookingItem = props => {
   return(
-    <p>Working</p>
+    <div>
+      <p>{props.date}</p>
+    </div>
   )
 }
 

@@ -6,7 +6,8 @@ const BookingList = props => {
 const bookingsList = props.bookings((entry, index) => {
   return(
   <BookingItem
-
+    indexNumber = {index}
+    date = {entry.date}
   </BookingItem>)
 });
 

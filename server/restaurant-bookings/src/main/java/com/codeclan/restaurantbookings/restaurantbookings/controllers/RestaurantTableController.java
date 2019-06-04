@@ -17,6 +17,11 @@ public class RestaurantTableController {
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
 
+    @GetMapping
+    public List<RestaurantTable> getAllRestaurantTables() {
+        return restaurantTableRepository.findAll();
+    }
+
     @GetMapping(value="/seating/{number}")
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){
         return restaurantTableRepository.findTablesBySeating(number);

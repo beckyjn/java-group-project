@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Song extends Component {
+class CustomerItem extends Component {
   render () {
     return(
       <div>
@@ -11,3 +11,5 @@ class Song extends Component {
     );
   }
 }
+
+export default CustomerItem;

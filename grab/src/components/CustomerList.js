@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CustomerItem from './Customer';
+import CustomerItem from './CustomerItem';
 
 class CustomerList extends Component {
   render() {
-    const customersNodes = this.props.songs.map((customer) => {
+    const customersNodes = this.props.customers.map((customer) => {
       return (
         <CustomerItem
           name={ customer.name }
@@ -11,7 +11,7 @@ class CustomerList extends Component {
           phone={ customer.phone }
         />
       );
-    })
+    });
 
     return(
       <div className="customers-list">
@@ -20,3 +20,5 @@ class CustomerList extends Component {
     );
   }
 }
+
+export default CustomerList;

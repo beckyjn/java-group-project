@@ -3,17 +3,21 @@ import BookingItem from "./BookingItem"
 
 const BookingList = props => {
 
-const bookingsList = props.bookings((entry, index) => {
+  console.log(props);
+
+
+const bookingsList = props.bookingsData.map((entry, index) => {
   return(
   <BookingItem
-    indexNumber = {index}
+    key = {index}
     date = {entry.date}
+    >
   </BookingItem>)
 });
 
 return(
   <div>
-  {bookingList}
+  {bookingsList}
 
   </div>
 );

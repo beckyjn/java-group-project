@@ -128,6 +128,9 @@ public class DataLoader implements ApplicationRunner {
         List myTables5 = new ArrayList<RestaurantTable>(Arrays.asList((table13)));
         List myTables6 = new ArrayList<RestaurantTable>(Arrays.asList((table14), (table15)));
         List myTables7 = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2), (table3), (table4), (table5), (table6), (table7), (table8), (table9), (table10), (table11), (table12), (table13), (table14), (table15), (table16), (table17), (table18), (table19), (table20)));
+        List myTables8 = new ArrayList<RestaurantTable>(Arrays.asList((table17)));
+        List myTables9 = new ArrayList<RestaurantTable>(Arrays.asList((table15), (table16), (table18)));
+        List myTables10 = new ArrayList<RestaurantTable>(Arrays.asList((table14)));
 
 
 
@@ -155,10 +158,26 @@ public class DataLoader implements ApplicationRunner {
         bookingRepository.save(booking9);
         Booking booking10 = new Booking(customer9, LocalDate.parse("2019-07-04"), LocalTime.parse("18:00"), 12, "", myTables4);
         bookingRepository.save(booking10);
-        Booking booking11 = new Booking(customer10, LocalDate.parse("2019-07-01"), LocalTime.parse("12:30"), 100, "Wedding's party", myTables7);
+        Booking booking11 = new Booking(customer10, LocalDate.parse("2019-06-10"), LocalTime.parse("17:30"), 8, "", myTables8);
         bookingRepository.save(booking11);
-        Booking booking12 = new Booking(customer11, LocalDate.parse("2019-07-01"), LocalTime.parse("12:30"), 100, "Wedding's party", myTables7);
+        Booking booking12 = new Booking(customer11, LocalDate.parse("2019-07-04"), LocalTime.parse("16:45"), 2, "Anniversary celebration", myTables3);
         bookingRepository.save(booking12);
+        Booking booking13 = new Booking(customer12, LocalDate.parse("2019-06-11"), LocalTime.parse("19:45"), 5, "", myTables5);
+        bookingRepository.save(booking13);
+        Booking booking14 = new Booking(customer12, LocalDate.parse("2019-06-21"), LocalTime.parse("16:45"), 9, "", myTables8);
+        bookingRepository.save(booking14);
+        Booking booking15 = new Booking(customer13, LocalDate.parse("2019-06-11"), LocalTime.parse("19:45"), 5, "", myTables10);
+        bookingRepository.save(booking15);
+        Booking booking16 = new Booking(customer3, LocalDate.parse("2019-06-11"), LocalTime.parse("17:30"), 10, "", myTables8);
+        bookingRepository.save(booking16);
+        Booking booking17 = new Booking(customer14, LocalDate.parse("2019-07-04"), LocalTime.parse("18:40"), 4, "", myTables);
+        bookingRepository.save(booking17);
+        Booking booking18 = new Booking(customer2, LocalDate.parse("2019-06-21"), LocalTime.parse("16:45"), 25, "E29 Graduation", myTables9);
+        bookingRepository.save(booking18);
+        Booking booking19 = new Booking(customer4, LocalDate.parse("2019-06-11"), LocalTime.parse("14:15"), 5, "", myTables5);
+        bookingRepository.save(booking19);
+        Booking booking20 = new Booking(customer12, LocalDate.parse("2019-06-11"), LocalTime.parse("19:45"), 15, "Job promotion", myTables6);
+        bookingRepository.save(booking20);
 
 
         // transactions:

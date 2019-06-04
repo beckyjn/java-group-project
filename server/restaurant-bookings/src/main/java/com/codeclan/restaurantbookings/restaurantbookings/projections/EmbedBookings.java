@@ -9,5 +9,7 @@ import java.util.List;
 public interface EmbedBookings {
 
     public String getName();
+    public String getPhone();
+    public String getEmail();
     List<Booking> getBookings();
 }

@@ -9,13 +9,20 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
-    const url = "/bookings";
-
-    fetch(url).then(res => {
-      res.json().then(bookings => {
-        this.setState({ bookings: bookings });
-      });
-    });
+    fetch("http://localhost:8080/", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(bookings =>
+        this.setState({
+          bookings: bookings
+        })
+      );
   }
 
   render() {

@@ -3,6 +3,7 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
+import BookingForm from '../components/BookingForm';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
@@ -55,6 +56,7 @@ class RestaurantContainer extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <BookingForm/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />

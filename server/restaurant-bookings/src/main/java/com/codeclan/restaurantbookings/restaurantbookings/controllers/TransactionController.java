@@ -5,6 +5,7 @@ import com.codeclan.restaurantbookings.restaurantbookings.repositories.Transacti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,8 @@ public class TransactionController {
     // TODO date not working, check format
     @GetMapping(value="/date/{date}")
     public List<Transaction> getAllTransactionsForDate(@PathVariable String date) {
-        return transactionRepository.findAllTransactionsByDate(date);
+        LocalDate getDate = LocalDate.parse(date);
+        return transactionRepository.findAllTransactionsByDate(getDate);
     }
 
     @GetMapping(value="/booking-id/{bookingId}")

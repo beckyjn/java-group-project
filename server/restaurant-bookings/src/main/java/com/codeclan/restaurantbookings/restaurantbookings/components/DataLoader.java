@@ -183,15 +183,15 @@ public class DataLoader implements ApplicationRunner {
         // transactions:
 // LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking)
         Transaction transaction1 = new Transaction(LocalDate.parse("2019-06-10"), 30, 30, customer1, booking1);
-        Transaction transaction2 = new Transaction(LocalDate.parse("2019-06-10"), 150, 50, customer2, booking2);
-        Transaction transaction3 = new Transaction( LocalDate.parse("2019-06-10"), 25, 25, customer3, booking3);
-        Transaction transaction4 = new Transaction(LocalDate.parse("2019-06-01"), 40, 40, customer3, booking4);
-        Transaction transaction5 = new Transaction(LocalDate.parse("2019-06-01"), 500, 100, customer2, booking4);
-        Transaction transaction6 = new Transaction(LocalDate.parse("2019-06-01"), 20, 20, customer1, booking4);
+        Transaction transaction2 = new Transaction(LocalDate.parse("2019-06-01"), 150, 50, customer2, booking2);
+        Transaction transaction3 = new Transaction( LocalDate.parse("2019-06-01"), 25, 25, customer3, booking3);
+        Transaction transaction4 = new Transaction(LocalDate.parse("2019-06-05"), 40, 40, customer3, booking4);
+        Transaction transaction5 = new Transaction(LocalDate.parse("2019-06-05"), 500, 100, customer2, booking4);
+        Transaction transaction6 = new Transaction(LocalDate.parse("2019-06-05"), 20, 20, customer1, booking4);
         Transaction transaction7 = new Transaction(LocalDate.parse("2019-06-05"), 25,25, customer2, booking4);
-        Transaction transaction8 = new Transaction(LocalDate.parse("2019-06-05"), 10, 10, customer5, booking3);
-        Transaction transaction9 = new Transaction(LocalDate.parse("2019-06-05"), 15, 15, customer1, booking3);
-        Transaction transaction10 = new Transaction(LocalDate.parse("2019-06-05"), 20, 20, customer2, booking1);
+        Transaction transaction8 = new Transaction(LocalDate.parse("2019-06-01"), 10, 10, customer5, booking3);
+        Transaction transaction9 = new Transaction(LocalDate.parse("2019-06-01"), 15, 15, customer1, booking3);
+        Transaction transaction10 = new Transaction(LocalDate.parse("2019-06-10"), 20, 20, customer2, booking1);
 
         transactionRepository.save(transaction1);
         transactionRepository.save(transaction2);

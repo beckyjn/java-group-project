@@ -52,3 +52,14 @@ ul#navbar a {
   text-decoration: none;
   font-weight: bolder;
 }
+
+div#error {
+  padding: 3em;
+  text-align: center;
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-top: 2em;
+  margin-bottom: 10em;
+  border: 5px double black;
+  border-radius: 10px;
+}

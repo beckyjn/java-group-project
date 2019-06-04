@@ -31,6 +31,7 @@ class RestaurantContainer extends Component {
     return (
       <div>
         <h1>Restaurant Container</h1>
+        <BookingDetail bookings={this.state.bookings}/>
       </div>
     );
   }

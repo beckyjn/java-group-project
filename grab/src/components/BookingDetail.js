@@ -1,18 +1,13 @@
-import React from "react";
-import BookingItem from "./BookingItem"
+import React from 'react';
 
-const BookingDetail = props => {
-
-const bookingsList = props.bookings((entry, index) => {
-  return(
-  <BookingItem
-
-  </BookingItem>)
-});
-
-return(
+const BookingDetail = ({booking}) => {
+  if (booking === null) {
+      return(
+          <p>Booking not found...</p>
+      )
+  }
+  return (
   <div>
-  {bookingList}
 
   </div>
 );

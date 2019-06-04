@@ -3,6 +3,8 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
+import CustomerDetail from "../components/CustomerDetail";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
@@ -12,7 +14,13 @@ class RestaurantContainer extends Component {
       bookings: null,
       customers: null,
       transactions: null,
-      restaurantTables: null
+      restaurantTables: null,
+      selectedCustomer: {
+"id": 3,
+"name": "Maria",
+"phone": "07293940234",
+"email": "Maria@codeclan.com"
+}
     };
   }
 
@@ -61,6 +69,8 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
+        <CustomerDetail customer={this.state.selectedCustomer}/>
+
       </Router>
     );
   }

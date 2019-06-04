@@ -8,8 +8,8 @@ const bookingsList = props.bookingsData.map((entry, index) => {
   <BookingItem
     key = {index}
     time = {entry.time}
-    date = {entry.date}
     name = {entry.customer.name}
+    date = {entry.date}  
     partyNo = {entry.numberInParty}
     >
   </BookingItem>)

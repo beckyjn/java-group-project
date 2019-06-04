@@ -12,4 +12,6 @@ import java.util.List;
 public interface RestaurantTableRepository extends JpaRepository<RestaurantTable, Long> {
 
     List<RestaurantTable> findTablesBySeating(int number);
+
+    List<RestaurantTable> findAll();
 }

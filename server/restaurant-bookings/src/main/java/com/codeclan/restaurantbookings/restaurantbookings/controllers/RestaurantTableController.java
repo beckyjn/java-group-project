@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/restaurant-tables")
+@RequestMapping(value = "/", name="RestaurantTableController")
 public class RestaurantTableController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class RestaurantTableController {
         return restaurantTableRepository.findAll();
     }
 
-    @GetMapping(value="/seating/{number}")
+    @GetMapping(value="/restaurant-tables/seating/{number}" )
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){
         return restaurantTableRepository.findTablesBySeating(number);
     }

@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import NavBar from "../components/Navbar";
+import Home from "../components/Home";
+import About from "../components/About";
+import ErrorPage from "../components/ErrorPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
   constructor(props) {
@@ -47,10 +52,16 @@ class RestaurantContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Restaurant Container</h1>
-        <BookingDetail bookings={this.state.bookings}/>
-      </div>
+      <Router>
+        <React.Fragment>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route component={ErrorPage} />
+          </Switch>
+        </React.Fragment>
+      </Router>
     );
   }
 }

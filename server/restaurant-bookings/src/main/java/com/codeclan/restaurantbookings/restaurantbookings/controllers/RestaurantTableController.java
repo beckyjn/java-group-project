@@ -11,13 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/restaurant-tables", name="RestaurantTableController")
+@RequestMapping(value = "/", name="RestaurantTableController")
 public class RestaurantTableController {
 
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
 
-    @GetMapping(value="/seating/{number}")
+    @GetMapping(value="/restaurant-tables")
+    public List<RestaurantTable> getAllRestaurantTables(){
+        return restaurantTableRepository.findAll();
+    }
+
+    @GetMapping(value="/restaurant-tables/seating/{number}" )
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){
         return restaurantTableRepository.findTablesBySeating(number);
     }

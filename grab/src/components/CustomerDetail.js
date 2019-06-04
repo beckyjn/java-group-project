@@ -44,6 +44,7 @@ const CustomerDetail = ({customer}) => {
 
         </div>
 // TODO: add customer number to url
+// Do we need more details embedded in the customer api? Bookings and transactions are gone
   )
 }
 export default CustomerDetail;

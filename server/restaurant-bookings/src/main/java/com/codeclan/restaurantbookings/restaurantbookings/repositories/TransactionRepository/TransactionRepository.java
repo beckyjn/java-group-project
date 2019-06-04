@@ -8,8 +8,9 @@ import java.util.List;
 
 @Repository
 public interface TransactionRepository  extends JpaRepository<Transaction, Long>, TransactionRepositoryCustom{
-    List<Transaction> findTransactionsByCustomerId(Long customerId);
-    List<Transaction> findTransactionsByBookingId(Long bookingId);
-
+    List<Transaction> getTransactionsByCustomerId(Long customerId);
+    List<Transaction> getTransactionsByBookingId(Long bookingId);
+    List<Transaction> getTransactionsByCustomerName(String customerName);
+    List<Transaction> findAllTransactionsByDate(String date);
 }
 

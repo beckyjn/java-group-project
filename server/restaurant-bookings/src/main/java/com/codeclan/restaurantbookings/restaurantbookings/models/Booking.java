@@ -45,10 +45,10 @@ public class Booking {
             inverseJoinColumns = {@JoinColumn(name = "table_id", nullable = false, updatable = false)}
     )
     private List<RestaurantTable> restaurantTables;
-//
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
-//    private List<Transaction> transactions;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
+    private List<Transaction> transactions;
 
     public Booking(Customer customer, LocalDate date, LocalTime time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
         this.date = date;
@@ -57,7 +57,7 @@ public class Booking {
         this.notes = notes;
         this.customer = customer;
         this.restaurantTables = restaurantTables;
-//        this.transactions = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     public Booking() {
@@ -166,44 +166,44 @@ public class Booking {
     }
 
 
-//    public List<Transaction> getTransactions() {
-//        return transactions;
-//    }
-//
-//    public void setTransactions(List<Transaction> transactions) {
-//        this.transactions = transactions;
-//    }
-//
-//    public void addTransaction(Transaction transaction){
-//        this.transactions.add(transaction);
-//    }
-//
-//    public void removeTransaction(Transaction transaction){
-//        if (transactions.contains(transaction)) this.transactions.remove(transaction);
-//    }
-//
-//    public int countTransactions(){
-//        return transactions.size();
-//    }
-//
-//    public Transaction getTransactionById(Long id){
-//        for (Transaction transaction : transactions)
-//            if ((transaction.getId() == id)) {
-//                return transaction;
-//            }
-//        return null;
-//    }
-//
-//    public void removeTransactionById(Long id){
-//        Transaction transactionToFind = getTransactionById(id);
-//        if (transactionToFind != null) transactions.remove(transactionToFind);
-//    }
-//
-//    public boolean hasTransactions(){
-//        return (transactions.size() > 0);
-//    }
-//
-//    public void removeAllTransactions(){
-//        transactions.clear();
-//    }
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void addTransaction(Transaction transaction){
+        this.transactions.add(transaction);
+    }
+
+    public void removeTransaction(Transaction transaction){
+        if (transactions.contains(transaction)) this.transactions.remove(transaction);
+    }
+
+    public int countTransactions(){
+        return transactions.size();
+    }
+
+    public Transaction getTransactionById(Long id){
+        for (Transaction transaction : transactions)
+            if ((transaction.getId() == id)) {
+                return transaction;
+            }
+        return null;
+    }
+
+    public void removeTransactionById(Long id){
+        Transaction transactionToFind = getTransactionById(id);
+        if (transactionToFind != null) transactions.remove(transactionToFind);
+    }
+
+    public boolean hasTransactions(){
+        return (transactions.size() > 0);
+    }
+
+    public void removeAllTransactions(){
+        transactions.clear();
+    }
 }

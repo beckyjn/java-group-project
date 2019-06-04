@@ -14,7 +14,7 @@ public class RestaurantTableController {
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
 
-    @GetMapping
+    @GetMapping(value="/restaurant-tables")
     @CrossOrigin
     public List<RestaurantTable> getAllRestaurantTables() {
         return restaurantTableRepository.findAll();

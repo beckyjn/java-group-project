@@ -5,6 +5,7 @@ html {
 
 body {
   background: white;
+  color: black;
   margin: 1em;
   border: 1px solid black;
   border-radius: 10px;
@@ -62,4 +63,27 @@ div#error {
   margin-bottom: 10em;
   border: 5px double black;
   border-radius: 10px;
+}
+
+ul#datalist {
+  display: block;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-bottom: 3em;
+  margin-left: 0;
+
+}
+
+ul#datalist li {
+    display: block;
+    list-style: inside none;
+    padding: 1.5em;
+    color: black;
+    background-color: white;
+}
+ul#datalist li:nth-child(odd) {
+    background-color: lightyellow;
+}
+ul#datalist li:nth-child(even) {
+    background-color: white;
 }

@@ -2,12 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => (
-  <ul>
+  <ul id="navbar">
     <li>
       <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/bookings/new">Create a New Booking</Link>
     </li>
     <li>
       <Link to="/bookings">Bookings</Link>

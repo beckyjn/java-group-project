@@ -5,6 +5,7 @@ import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
+import BookingDetail from "../components/BookingDetail";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -36,6 +37,61 @@ class RestaurantContainer extends Component {
 "bookings": {
 "href": "http://localhost:8080/restaurantTables/1/bookings{?projection}",
 "templated": true
+}
+}
+},
+    selectedBooking: {
+"id": 1,
+"date": "10-06-2019",
+"time": "17:00:00",
+"numberInParty": 20,
+"notes": "Graduation dinner",
+"_embedded": {
+"customer": {
+"name": "Pim",
+"phone": "07392383829",
+"email": "Pim@codeclan.com",
+"bookings": [
+{
+"id": 1,
+"date": "10-06-2019",
+"time": "17:00:00",
+"numberInParty": 20,
+"notes": "Graduation dinner"
+}
+],
+"_links": {
+"self": {
+"href": "http://localhost:8080/customers/1{?projection}",
+"templated": true
+},
+"bookings": {
+"href": "http://localhost:8080/customers/1/bookings{?projection}",
+"templated": true
+},
+"transactions": {
+"href": "http://localhost:8080/customers/1/transactions"
+}
+}
+}
+},
+"_links": {
+"self": {
+"href": "http://localhost:8080/bookings/1"
+},
+"booking": {
+"href": "http://localhost:8080/bookings/1{?projection}",
+"templated": true
+},
+"transactions": {
+"href": "http://localhost:8080/bookings/1/transactions"
+},
+"customer": {
+"href": "http://localhost:8080/bookings/1/customer{?projection}",
+"templated": true
+},
+"restaurantTables": {
+"href": "http://localhost:8080/bookings/1/restaurantTables"
 }
 }
 }
@@ -89,6 +145,7 @@ class RestaurantContainer extends Component {
         </React.Fragment>
         <CustomerDetail customer={this.state.selectedCustomer}/>
         <RestaurantTableDetail restaurantTable={this.state.selectedRestaurantTable}/>
+        <BookingDetail booking={this.state.selectedBooking}/>
 
       </Router>
     );

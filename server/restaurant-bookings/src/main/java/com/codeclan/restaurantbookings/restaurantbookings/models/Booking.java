@@ -32,12 +32,11 @@ public class Booking {
     @Column(name = "notes")
     private String notes;
 
-    @JsonIgnoreProperties("booking") //TODO double check booking/bookings
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @JsonIgnoreProperties("booking")
+    @JsonIgnoreProperties("bookings")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

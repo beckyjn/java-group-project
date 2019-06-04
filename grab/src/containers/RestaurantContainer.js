@@ -59,7 +59,7 @@ class RestaurantContainer extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/bookings" render={() => (
+            <Route exact path="/bookings" render={() => (
               <BookingList bookingsData={this.state.bookings}/>)}/>
             <Route component={ErrorPage} />
           </Switch>

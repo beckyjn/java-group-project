@@ -27,4 +27,9 @@ public class CustomerController {
         return customerRepository.findCustomerById(id);
     }
 
+    @GetMapping(value="/frequency")
+    public List<Customer> getAllCustomersOrderByCountBookings(){
+        return customerRepository.findAllByBookings();
+    }
+
 }

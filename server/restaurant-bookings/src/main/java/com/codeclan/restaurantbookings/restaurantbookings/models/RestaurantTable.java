@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -109,12 +110,9 @@ public class RestaurantTable {
         bookings.clear();
     }
 
-    public boolean isAvailableOnDate(String date){
-//        date = new Date(20190614);
-//        date = new Date(20190514);
-//        System.out.println(date);
+    public boolean isAvailableOnDate(String dateString){
         for (Booking booking : bookings)
-            if (booking.getDate() == date) return false;
+            if (LocalDate.parse(dateString).equals(booking.getDate())) return false;
         return true;
     }
     // TODO add checking by time as well later

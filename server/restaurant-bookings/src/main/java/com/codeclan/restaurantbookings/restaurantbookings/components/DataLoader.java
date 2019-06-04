@@ -3,15 +3,19 @@ package com.codeclan.restaurantbookings.restaurantbookings.components;
 import com.codeclan.restaurantbookings.restaurantbookings.models.Booking;
 import com.codeclan.restaurantbookings.restaurantbookings.models.Customer;
 import com.codeclan.restaurantbookings.restaurantbookings.models.RestaurantTable;
+import com.codeclan.restaurantbookings.restaurantbookings.models.Transaction;
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.BookingRepository.BookingRepository;
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.CustomerRepository.CustomerRepository;
 import com.codeclan.restaurantbookings.restaurantbookings.repositories.RestaurantTableRepository.RestaurantTableRepository;
+import com.codeclan.restaurantbookings.restaurantbookings.repositories.TransactionRepository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.awt.print.Book;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 @Component
@@ -23,6 +27,8 @@ public class DataLoader implements ApplicationRunner {
     CustomerRepository customerRepository;
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
+    @Autowired
+    TransactionRepository transactionRepository;
 
     public DataLoader() {
 
@@ -58,15 +64,41 @@ public class DataLoader implements ApplicationRunner {
 
         List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2)));
 
+
+
         // 3 bookings:
-        Booking booking1 = new Booking(customer1, "01-06-2019", "1700", 20, "Graduation dinner", myTables);
+        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-10"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables);
         bookingRepository.save(booking1);
-        Booking booking2 = new Booking(customer2, "01-06-2019", "1700", 3, "", myTables );
+        Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
         bookingRepository.save(booking2);
-        Booking booking3 = new Booking(customer3, "01-06-2019", "1700", 1, "Window seat if possible", myTables );
+        Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables );
         bookingRepository.save(booking3);
-        Booking booking4 = new Booking(customer3, "05-06-2019", "1900", 2, "Not facing the toilet", myTables );
+        Booking booking4 = new Booking(customer3, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 2, "Not facing the toilet", myTables);
         bookingRepository.save(booking4);
+
+        // transactions:
+// LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking)
+        Transaction transaction1 = new Transaction(LocalDate.parse("2019-06-10"), 30, 30, customer1, booking1);
+        Transaction transaction2 = new Transaction(LocalDate.parse("2019-06-10"), 150, 50, customer2, booking2);
+        Transaction transaction3 = new Transaction( LocalDate.parse("2019-06-10"), 25, 25, customer3, booking3);
+        Transaction transaction4 = new Transaction(LocalDate.parse("2019-06-01"), 40, 40, customer3, booking4);
+        Transaction transaction5 = new Transaction(LocalDate.parse("2019-06-01"), 500, 100, customer2, booking4);
+        Transaction transaction6 = new Transaction(LocalDate.parse("2019-06-01"), 20, 20, customer1, booking4);
+        Transaction transaction7 = new Transaction(LocalDate.parse("2019-06-05"), 25,25, customer2, booking4);
+        Transaction transaction8 = new Transaction(LocalDate.parse("2019-06-05"), 10, 10, customer5, booking3);
+        Transaction transaction9 = new Transaction(LocalDate.parse("2019-06-05"), 15, 15, customer1, booking3);
+        Transaction transaction10 = new Transaction(LocalDate.parse("2019-06-05"), 20, 20, customer2, booking1);
+
+        transactionRepository.save(transaction1);
+        transactionRepository.save(transaction2);
+        transactionRepository.save(transaction3);
+        transactionRepository.save(transaction4);
+        transactionRepository.save(transaction5);
+        transactionRepository.save(transaction6);
+        transactionRepository.save(transaction7);
+        transactionRepository.save(transaction8);
+        transactionRepository.save(transaction9);
+        transactionRepository.save(transaction10);
 
     }
 

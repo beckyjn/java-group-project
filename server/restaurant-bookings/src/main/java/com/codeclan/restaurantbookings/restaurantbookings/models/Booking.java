@@ -1,10 +1,13 @@
 package com.codeclan.restaurantbookings.restaurantbookings.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,10 +21,10 @@ public class Booking {
     private Long id;
 
     @Column(name = "date")
-    private String date;
+    private LocalDate date;
 
     @Column(name = "time")
-    private String time;
+    private LocalTime time;
 
     @Column(name = "number_in_party")
     private int numberInParty;
@@ -42,19 +45,19 @@ public class Booking {
             inverseJoinColumns = {@JoinColumn(name = "table_id", nullable = false, updatable = false)}
     )
     private List<RestaurantTable> restaurantTables;
-//
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY)
-//    private List<Transaction> transactions;
 
-    public Booking(Customer customer, String date, String time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
+    @JsonIgnore
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
+    private List<Transaction> transactions;
+
+    public Booking(Customer customer, LocalDate date, LocalTime time, int numberInParty, String notes, List<RestaurantTable> restaurantTables) {
         this.date = date;
         this.time = time;
         this.numberInParty = numberInParty;
         this.notes = notes;
         this.customer = customer;
         this.restaurantTables = restaurantTables;
-//        this.transactions = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     public Booking() {
@@ -71,20 +74,22 @@ public class Booking {
         this.id = id;
     }
 
-    public String getDate() {
+    @JsonFormat(pattern="dd-MM-yyyy")
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+
+    public void setDate(String dateString) {
+        this.date = LocalDate.parse(dateString);
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String timeString) {
+        this.time = LocalTime.parse(timeString);
     }
 
     public int getNumberInParty() {
@@ -161,44 +166,44 @@ public class Booking {
     }
 
 
-//    public List<Transaction> getTransactions() {
-//        return transactions;
-//    }
-//
-//    public void setTransactions(List<Transaction> transactions) {
-//        this.transactions = transactions;
-//    }
-//
-//    public void addTransaction(Transaction transaction){
-//        this.transactions.add(transaction);
-//    }
-//
-//    public void removeTransaction(Transaction transaction){
-//        if (transactions.contains(transaction)) this.transactions.remove(transaction);
-//    }
-//
-//    public int countTransactions(){
-//        return transactions.size();
-//    }
-//
-//    public Transaction getTransactionById(Long id){
-//        for (Transaction transaction : transactions)
-//            if ((transaction.getId() == id)) {
-//                return transaction;
-//            }
-//        return null;
-//    }
-//
-//    public void removeTransactionById(Long id){
-//        Transaction transactionToFind = getTransactionById(id);
-//        if (transactionToFind != null) transactions.remove(transactionToFind);
-//    }
-//
-//    public boolean hasTransactions(){
-//        return (transactions.size() > 0);
-//    }
-//
-//    public void removeAllTransactions(){
-//        transactions.clear();
-//    }
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void addTransaction(Transaction transaction){
+        this.transactions.add(transaction);
+    }
+
+    public void removeTransaction(Transaction transaction){
+        if (transactions.contains(transaction)) this.transactions.remove(transaction);
+    }
+
+    public int countTransactions(){
+        return transactions.size();
+    }
+
+    public Transaction getTransactionById(Long id){
+        for (Transaction transaction : transactions)
+            if ((transaction.getId() == id)) {
+                return transaction;
+            }
+        return null;
+    }
+
+    public void removeTransactionById(Long id){
+        Transaction transactionToFind = getTransactionById(id);
+        if (transactionToFind != null) transactions.remove(transactionToFind);
+    }
+
+    public boolean hasTransactions(){
+        return (transactions.size() > 0);
+    }
+
+    public void removeAllTransactions(){
+        transactions.clear();
+    }
 }

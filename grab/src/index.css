@@ -10,26 +10,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-h1 {
-  width: 100%;
-  text-align: left;
-  display: block;
-}
-div#data-detail {
-  float: left;
-  padding: 2em;
-}
-
-table.data-table {
-  display: block;
-  clear: left;
-  margin-top: 1em;
-  margin-bottom: 2em;
-  border: 1px solid black;
-}
-
-table.data-table td {
-  padding: 1em;
-  text-align: left;
-}

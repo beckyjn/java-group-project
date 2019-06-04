@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
 import CustomerDetail from "../components/CustomerDetail";
+import RestaurantTableDetail from "../components/RestaurantTableDetail";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -20,6 +21,23 @@ class RestaurantContainer extends Component {
 "name": "Maria",
 "phone": "07293940234",
 "email": "Maria@codeclan.com"
+},
+      selectedRestaurantTable: {
+"id": 1,
+"tableNumber": 1,
+"seating": 4,
+"_links": {
+"self": {
+"href": "http://localhost:8080/restaurantTables/1"
+},
+"restaurantTable": {
+"href": "http://localhost:8080/restaurantTables/1"
+},
+"bookings": {
+"href": "http://localhost:8080/restaurantTables/1/bookings{?projection}",
+"templated": true
+}
+}
 }
     };
   }
@@ -70,6 +88,7 @@ class RestaurantContainer extends Component {
           </Switch>
         </React.Fragment>
         <CustomerDetail customer={this.state.selectedCustomer}/>
+        <RestaurantTableDetail restaurantTable={this.state.selectedRestaurantTable}/>
 
       </Router>
     );

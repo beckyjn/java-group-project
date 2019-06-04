@@ -5,12 +5,15 @@ const CustomerDetail = ({customer}) => {
       return(
           <p>Customer not found...</p>
       )
+  } else {
+    let buttonUrl =String('http://localhost:3000/bookingsbycustomer/' + customer.id);
+
   }
   return (
       <div  id="data-detail">
           <h1>Customer Details:</h1>
           <h2>In a Table:</h2>
-          <table className="data-table"><tr>
+          <table className="data-table"><tbody><tr>
           <td><h3>Name:</h3></td>
           <td>{customer.name}</td>
           </tr><tr>
@@ -22,7 +25,7 @@ const CustomerDetail = ({customer}) => {
           </tr><tr>
           <td><strong>Email:</strong></td>
           <td>{customer.email}</td>
-          </tr></table>
+          </tr></tbody></table>
 <div className="customer-detail">
 <h2>In Paragraphs:</h2>
 <h3>Name:</h3>
@@ -34,7 +37,13 @@ const CustomerDetail = ({customer}) => {
 <h3>Email:</h3>
 <p>{customer.email}</p>
 </div>
-      </div>
+
+      <a className="view-more-button" href="http://localhost:3000/bookingsbycustomer">
+        See Bookings by this Customer
+        </a>
+
+        </div>
+// TODO: add customer number to url
   )
 }
 export default CustomerDetail;

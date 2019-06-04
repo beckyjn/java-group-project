@@ -13,7 +13,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.awt.print.Book;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
@@ -120,19 +120,46 @@ public class DataLoader implements ApplicationRunner {
         Customer customer20 = new Customer("King", "01311111121", "King@codeclan.com");
         customerRepository.save(customer20);
 
-        List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2)));
+        List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1)));
+        List myTables1 = new ArrayList<RestaurantTable>(Arrays.asList((table15), (table16)));
+        List myTables2 = new ArrayList<RestaurantTable>(Arrays.asList((table18)));
+        List myTables3 = new ArrayList<RestaurantTable>(Arrays.asList((table19)));
+        List myTables4 = new ArrayList<RestaurantTable>(Arrays.asList((table11)));
+        List myTables5 = new ArrayList<RestaurantTable>(Arrays.asList((table13)));
+        List myTables6 = new ArrayList<RestaurantTable>(Arrays.asList((table14), (table15)));
+        List myTables7 = new ArrayList<RestaurantTable>(Arrays.asList((table1), (table2), (table3), (table4), (table5), (table6), (table7), (table8), (table9), (table10), (table11), (table12), (table13), (table14), (table15), (table16), (table17), (table18), (table19), (table20)));
+
+
+
 
 
 
         // 3 bookings:
-        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-10"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables);
+        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-10"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables1);
         bookingRepository.save(booking1);
         Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
         bookingRepository.save(booking2);
-        Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables );
+        Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables2 );
         bookingRepository.save(booking3);
-        Booking booking4 = new Booking(customer3, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 2, "Not facing the toilet", myTables);
+        Booking booking4 = new Booking(customer3, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 2, "Not facing the toilet", myTables3);
         bookingRepository.save(booking4);
+        Booking booking5 = new Booking(customer4, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 11, "Birthday's party", myTables4);
+        bookingRepository.save(booking5);
+        Booking booking6 = new Booking(customer5, LocalDate.parse("2019-06-05"), LocalTime.parse("18:30"), 6, "", myTables5);
+        bookingRepository.save(booking6);
+        Booking booking7 = new Booking(customer6, LocalDate.parse("2019-06-05"), LocalTime.parse("17:30"), 15, "", myTables6);
+        bookingRepository.save(booking7);
+        Booking booking8 = new Booking(customer7, LocalDate.parse("2019-07-01"), LocalTime.parse("12:30"), 100, "Wedding's party - all day long", myTables7);
+        bookingRepository.save(booking8);
+        Booking booking9 = new Booking(customer8, LocalDate.parse("2019-06-10"), LocalTime.parse("15:30"), 4, "Window seat if possible", myTables);
+        bookingRepository.save(booking9);
+        Booking booking10 = new Booking(customer9, LocalDate.parse("2019-07-04"), LocalTime.parse("18:00"), 12, "", myTables4);
+        bookingRepository.save(booking10);
+        Booking booking11 = new Booking(customer10, LocalDate.parse("2019-07-01"), LocalTime.parse("12:30"), 100, "Wedding's party", myTables7);
+        bookingRepository.save(booking11);
+        Booking booking12 = new Booking(customer11, LocalDate.parse("2019-07-01"), LocalTime.parse("12:30"), 100, "Wedding's party", myTables7);
+        bookingRepository.save(booking12);
+
 
         // transactions:
 // LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking)

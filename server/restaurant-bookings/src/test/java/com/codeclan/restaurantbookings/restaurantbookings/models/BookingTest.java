@@ -68,7 +68,6 @@ public class BookingTest {
     public void getTime() {
         assertEquals(LocalTime.parse("18:00"), booking.getTime());
     }
-
     @Test
     public void setTime() {
         booking.setTime("19:15");

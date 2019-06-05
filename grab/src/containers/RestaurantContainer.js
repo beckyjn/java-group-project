@@ -16,10 +16,10 @@ class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookings: null,
+      bookings: [],
       customers: [],
-      transactions: null,
-      restaurantTables: null,
+      transactions: [],
+      restaurantTables: [],
       selectedCustomer: {
         id: 3,
         name: "Maria",

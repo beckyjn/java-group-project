@@ -15,7 +15,18 @@ const TransactionList = props => {
     );
   });
 
-  return <div className="transactions-list">{allTransactions}</div>;
-};
+  return(
+    <table>
+    <tr>
+    <th>Date</th>
+    <th>Paid</th>
+    <th>Due</th>
+    <th>Balance</th>
+    <th>Warning</th>
+    </tr>
+    {allTransactions}
+    </table>
+  );
+}
 
 export default TransactionList;

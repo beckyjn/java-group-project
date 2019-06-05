@@ -76,7 +76,7 @@ public class DataLoader implements ApplicationRunner {
         RestaurantTable table19 = new RestaurantTable(19,2);
         restaurantTableRepository.save(table19);
         RestaurantTable table20 = new RestaurantTable(20,2);
-<<<<<<< HEAD
+// delete the data below this (before other comment) before pull request
         restaurantTableRepository.save(table20);
 
         // 5 customers:
@@ -141,8 +141,15 @@ public class DataLoader implements ApplicationRunner {
         // 3 bookings:
         Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-05"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables1);
         bookingRepository.save(booking1);
+        table15.addBooking(booking1);
+        restaurantTableRepository.save(table15);
+        table16.addBooking(booking1);
+        restaurantTableRepository.save(table16);
         Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
         bookingRepository.save(booking2);
+        table1.addBooking(booking2);
+        restaurantTableRepository.save(table1);
+
         Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables2 );
         bookingRepository.save(booking3);
         Booking booking4 = new Booking(customer3, LocalDate.parse("2019-06-05"), LocalTime.parse("19:00"), 2, "Not facing the toilet", myTables3);
@@ -208,8 +215,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 }
-=======
-        restaurantTableRepository.save(table20);}}
+// delete the data above this before pull request
 
 //        // 5 customers:
 //        Customer customer1 = new Customer("Pim", "07392383829", "Pim@codeclan.com");
@@ -339,5 +345,5 @@ public class DataLoader implements ApplicationRunner {
 //    }
 
 
-// }
->>>>>>> develop
+//}
+

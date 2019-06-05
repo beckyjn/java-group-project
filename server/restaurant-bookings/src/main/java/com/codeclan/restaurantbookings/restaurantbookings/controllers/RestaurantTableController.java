@@ -24,4 +24,9 @@ public class RestaurantTableController {
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){
         return restaurantTableRepository.findTablesBySeating(number);
     }
+
+    @GetMapping(value="/restaurant-tables/availableondate/{date}" )
+    public List<RestaurantTable> getTablesAvailableOnDate(@PathVariable String date){
+        return restaurantTableRepository.getTablesAvailableOnDate(date);
+    }
 }

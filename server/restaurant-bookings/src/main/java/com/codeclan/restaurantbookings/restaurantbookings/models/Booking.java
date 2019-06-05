@@ -73,7 +73,7 @@ public class Booking {
         this.id = id;
     }
 
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     public LocalDate getDate() {
         return date;
     }

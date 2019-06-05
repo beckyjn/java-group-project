@@ -179,7 +179,6 @@ public class DataLoader implements ApplicationRunner {
         Booking booking20 = new Booking(customer12, LocalDate.parse("2019-06-11"), LocalTime.parse("19:45"), 15, "Job promotion", myTables6);
         bookingRepository.save(booking20);
 
-
         // transactions:
 // LocalDate date, int amountOwing, int amountPaid, Customer customer, Booking booking)
         Transaction transaction1 = new Transaction(LocalDate.parse("2019-06-10"), 30, 30, customer1, booking1);

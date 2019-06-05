@@ -15,6 +15,11 @@ const TransactionList = props => {
     );
   });
 
+  if( props.transactionsData === null ){
+    return(
+      <h3>Transaction content loading...</h3>
+    );
+  }
   return(
     <table>
     <tr>

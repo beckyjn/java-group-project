@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CustomerItem from './CustomerItem';
 
-const CustomerList = props =>  {
+const CustomerList = (props) =>  {
 
   const customersNodes = props.customers.map((customer, index) => {
     return (
@@ -13,12 +15,12 @@ const CustomerList = props =>  {
     );
   });
 
-  return(
+  return (
     <div className="customers-list">
+      <h1>Customers</h1>
       {customersNodes}
     </div>
   );
-
 }
 
 export default CustomerList;

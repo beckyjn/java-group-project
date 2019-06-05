@@ -196,6 +196,9 @@ class RestaurantContainer extends Component {
         }
       }
     };
+
+    this.onBookingSubmit =  this.onBookingSubmit.bind(this);
+    this.onCustomerSubmit = this.onCustomerSubmit.bind(this);
   }
 
   fetchData(url, callback) {
@@ -243,13 +246,61 @@ class RestaurantContainer extends Component {
     );
   }
 
+  onBookingSubmit(payload){
+    fetch('http://localhost:8080/bookings', {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(res => {   let bookings = [...this.state.bookings];
+    bookings.push(res);
+    this.setState({ bookings });
+  })
+  .catch(error => {
+      console.error(error);
+  });
+  }
+
+  onCustomerSubmit(payload){
+      fetch('http://localhost:8080/customers', {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:3000"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(res => {
+        let customers = [...this.state.customers];
+        customers.push(res);
+        this.setState({ customers });
+      })
+      .catch(error => {
+          console.error(error);
+      });
+  }
+
   render() {
     return (
       <Router>
         <React.Fragment>
           <NavBar />
-          <CustomerForm></CustomerForm>
-          <BookingForm customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
+          <CustomerForm
+            onSubmit={this.onCustomerSubmit}
+            />
+          <BookingForm 
+            onSubmit={this.onBookingSubmit}
+            customers={this.state.customers} 
+            restaurantTables={this.state.restaurantTables}/>
           <Switch>
             <Route exact path="/" render={() => <BookingList bookingsData={this.state.todayBookings} />} />
             <Route path="/about" component={About} />

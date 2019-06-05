@@ -69,21 +69,16 @@ class BookingForm extends Component{
             "restaurantTables": this.state.selectedTables
         };
 
-        fetch('http://localhost:8080/bookings', {
-            mode: "cors",
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              "Access-Control-Allow-Origin": "http://localhost:3000"
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(res => res.json())
-        .catch(error => {
-            console.error(error);
-        });
-    }
+        this.props.onSubmit(payload)
+
+        this.setState({
+            customerId: '',
+            numberOfGuests: '',
+            selectedTables: [],
+            time: '',
+            date: ''
+    })
+}
 
     render () {
         if (this.props.restaurantTables === null) {
@@ -107,7 +102,7 @@ class BookingForm extends Component{
 
                     <label htmlFor="numberOfGuests">Number of guests: </label>
                     <input type="number" id="numberOfGuests" name="numberOfGuests" value={this.state.numberOfGuests} min="1" max="100" onChange={this.handleInputChange} required/>
-                    <br class = "clear" /><br />
+                    <br className = "clear" /><br />
                     <div id="table-box-list">
                     {this.restaurantTableChecklist()}
                     </div>
@@ -116,7 +111,7 @@ class BookingForm extends Component{
             </div>
         )
     }
+    }
 
-}
 
 export default BookingForm;

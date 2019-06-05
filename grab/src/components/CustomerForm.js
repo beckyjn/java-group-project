@@ -31,20 +31,7 @@ class CustomerForm extends Component{
                 "email": this.state.email
             };
     
-            fetch('http://localhost:8080/customers', {
-                mode: "cors",
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                  "Access-Control-Allow-Origin": "http://localhost:3000"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.json())
-            .catch(error => {
-                console.error(error);
-            });
+           this.props.onSubmit(payload);
 
             this.setState({
                     name: '',

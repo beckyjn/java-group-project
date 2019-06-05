@@ -7,7 +7,7 @@ const RestaurantTableDetail = ({restaurantTable}) => {
       )
   } else {
     let buttonUrl =String('http://localhost:3000/bookingsbytable/' + restaurantTable.id);
-     console.log('buttonurl:', buttonUrl); // works here
+ //    console.log('buttonurl:', buttonUrl); // works here
   }
   return (
       <div  id="data-detail">

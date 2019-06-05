@@ -11,6 +11,7 @@ import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
 import CustomerList from "../components/CustomerList";
+import CustomerForm from "../components/CustomerForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
@@ -235,6 +236,7 @@ class RestaurantContainer extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <CustomerForm></CustomerForm>
           <BookingForm customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
           <Switch>
             <Route exact path="/" component={Home} />

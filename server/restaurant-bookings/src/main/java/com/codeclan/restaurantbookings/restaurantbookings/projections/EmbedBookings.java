@@ -7,7 +7,6 @@ import org.springframework.data.rest.core.config.Projection;
 import java.util.List;
 @Projection(name = "embedBookings", types = Customer.class)
 public interface EmbedBookings {
-
     public Long getId();
     public String getName();
     public String getPhone();

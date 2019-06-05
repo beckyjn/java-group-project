@@ -1,0 +1,19 @@
+{
+  "name": "project_03",
+  "version": "1.0.0",
+  "description": "Annabel, Becky, Charlie, Maria and Pim",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beckyjn/java-group-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beckyjn/java-group-project/issues"
+  },
+  "homepage": "https://github.com/beckyjn/java-group-project#readme"
+}

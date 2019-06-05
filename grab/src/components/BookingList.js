@@ -5,9 +5,9 @@ const BookingList = props => {
 
   function handleClick(evt) {
     // console.log(evt.target.value);
-    const selectedBooking = evt.target.value;
-    console.log("selected booking", selectedBooking);
-    props.onBookingSelected(selectedBooking);
+  const selectedBooking = evt.target.value;
+    console.log("selected booking", evt.target.value);
+  props.onBookingSelected(selectedBooking);
   }
 
   const bookingsList = props.bookingsData.map((booking, index) => {
@@ -21,7 +21,7 @@ const BookingList = props => {
         </td>
         <td>{booking.numberInParty}
         </td>
-        <button className="more-detail" onClick={handleClick}>More Details</button>
+        <button className="more-detail" onClick={handleClick} value={booking.id}>More Details</button>
       </tr>
     )
   });

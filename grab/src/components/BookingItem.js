@@ -2,6 +2,8 @@ import React from "react"
 
 const BookingItem = props => {
 
+  console.log(props);
+
   return(
     // props.onBookingSelected(selectedBooking)
     <tr>

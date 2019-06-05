@@ -3,6 +3,7 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
+import BookingForm from '../components/BookingForm';
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
 import BookingDetail from "../components/BookingDetail";
@@ -234,6 +235,7 @@ class RestaurantContainer extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <BookingForm customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />

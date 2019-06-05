@@ -8,6 +8,7 @@ import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
 import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
+import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
 import CustomerList from "../components/CustomerList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -16,10 +17,10 @@ class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookings: null,
+      bookings: [],
       customers: [],
-      transactions: null,
-      restaurantTables: null,
+      transactions: [],
+      restaurantTables: [],
       selectedCustomer: {
         id: 3,
         name: "Maria",
@@ -247,6 +248,13 @@ class RestaurantContainer extends Component {
               exact
               path="/bookings"
               render={() => <BookingList bookingsData={this.state.bookings} />}
+            />
+            <Route
+              exact
+              path="/transactions"
+              render={() => (
+                <TransactionList transactionsData={this.state.transactions} />
+              )}
             />
             <Route component={ErrorPage} />
           </Switch>

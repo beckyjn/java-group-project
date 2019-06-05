@@ -13,6 +13,9 @@ const NavBar = () => (
       <Link to="/customers">Customers</Link>
     </li>
     <li>
+      <Link to="/transactions">Transactions</Link>
+    </li>
+    <li>
       <Link to="/about">About</Link>
     </li>
   </ul>

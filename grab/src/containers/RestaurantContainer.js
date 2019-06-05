@@ -18,6 +18,7 @@ class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      todayBookings: [],
       bookings: [],
       customers: [],
       transactions: [],
@@ -217,6 +218,17 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = `${today.getMonth() + 1}`.padStart(2, 0)
+    const day = `${today.getDate()}`.padStart(2, 0)
+    const stringDate = [year, month, day].join("-")
+    console.log(stringDate);
+
+    this.fetchData(`http://localhost:8080/bookings/date/${stringDate}`, bookings => {
+      this.setState({ todayBookings: bookings });
+    });
+
     this.fetchData("http://localhost:8080/bookings", bookings => {
       this.setState({ bookings: bookings._embedded.bookings });
     });
@@ -290,7 +302,7 @@ class RestaurantContainer extends Component {
             customers={this.state.customers} 
             restaurantTables={this.state.restaurantTables}/>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={() => <BookingList bookingsData={this.state.todayBookings} />} />
             <Route path="/about" component={About} />
             <Route
               exact

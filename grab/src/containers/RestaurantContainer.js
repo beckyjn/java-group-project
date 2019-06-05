@@ -234,7 +234,7 @@ class RestaurantContainer extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
-          <BookingForm/>
+          <BookingForm customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />

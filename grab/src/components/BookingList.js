@@ -3,16 +3,26 @@ import BookingItem from "./BookingItem"
 
 const BookingList = props => {
 
-  const bookingsList = props.bookingsData.map((entry, index) => {
+  function handleClick(evt) {
+    // console.log(evt.target.value);
+    const selectedBooking = evt.target.value;
+    console.log("selected booking", selectedBooking);
+    props.onBookingSelected(selectedBooking);
+  }
+
+  const bookingsList = props.bookingsData.map((booking, index) => {
     return(
-      <BookingItem
-      key = {index}
-      time = {entry.time}
-      name = {entry.customer.name}
-      date = {entry.date}
-      partyNo = {entry.numberInParty}
-      >
-      </BookingItem>
+      <tr value={booking.id} key={index}>
+        <td>{booking.date}
+        </td>
+        <td>{booking.customer.name}
+        </td>
+        <td>{booking.time}
+        </td>
+        <td>{booking.numberInParty}
+        </td>
+        <button className="more-detail" onClick={handleClick}>More Details</button>
+      </tr>
     )
   });
 

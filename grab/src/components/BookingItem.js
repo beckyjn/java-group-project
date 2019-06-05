@@ -2,14 +2,12 @@ import React from "react"
 
 const BookingItem = props => {
   return(
-    <div>
-    <ul id="datalist">
-      <li>{props.date}</li>
-      <li>{props.name}</li>
-      <li>{props.time}</li>
-      <li>{props.partyNo}</li>
-    </ul>
-    </div>
+    <tr>
+    <td>{props.date}</td>
+    <td>{props.name}</td>
+    <td>{props.time}</td>
+    <td>{props.partyNo}</td>
+    </tr>
   )
 }
 

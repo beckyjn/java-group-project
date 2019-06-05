@@ -21,7 +21,7 @@ const TransactionList = props => {
     );
   }
   return(
-    <table>
+    <table  id="datalist">
     <tr>
     <th>Date</th>
     <th>Paid</th>

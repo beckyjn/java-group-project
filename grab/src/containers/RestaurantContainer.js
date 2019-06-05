@@ -94,7 +94,7 @@ class RestaurantContainer extends Component {
             />
             <Route
               path="/bookings/:id"
-              render={() => <BookingDetail
+              render={(match) => <BookingDetail
               bookingDetail={this.state.selectedBooking}
               />}
             />

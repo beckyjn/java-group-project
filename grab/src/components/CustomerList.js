@@ -14,11 +14,16 @@ const CustomerList = props =>  {
   });
 
   return(
-    <div className="customers-list">
-      {customersNodes}
-    </div>
+    <table>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    </tr>
+    {customersNodes}
+    </table>
   );
-
 }
+
 
 export default CustomerList;

@@ -2,13 +2,11 @@ import React from 'react';
 
 const CustomerItem = props => {
   return(
-    <div>
-      <ul id="datalist">
-        <li>{ props.name }</li>
-        <li>{ props.email }</li>
-        <li>{ props.phone }</li>
-      </ul>
-    </div>
+    <tr>
+      <td>{ props.name }</td>
+      <td>{ props.email }</td>
+      <td>{ props.phone }</td>
+    </tr>
   );
 }
 

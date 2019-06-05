@@ -5,6 +5,7 @@ html {
 
 body {
   background: white;
+  color: black;
   margin: 1em;
   border: 1px solid black;
   border-radius: 10px;
@@ -50,4 +51,74 @@ ul#navbar a {
   color: white;
   text-decoration: none;
   font-weight: bolder;
+}
+
+div#error {
+  padding: 3em;
+  text-align: center;
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-top: 2em;
+  margin-bottom: 10em;
+  border: 5px double black;
+  border-radius: 10px;
+}
+
+ul#datalist {
+  display: block;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-bottom: 3em;
+  margin-left: 0;
+
+}
+
+ul#datalist li {
+    display: block;
+    list-style: inside none;
+    padding: 1.5em;
+    color: black;
+    background-color: white;
+}
+ul#datalist li:nth-child(odd) {
+    background-color: lightyellow;
+}
+ul#datalist li:nth-child(even) {
+    background-color: white;
+}
+
+h1 {
+  width: 100%;
+  text-align: left;
+  display: block;
+}
+div#data-detail {
+  float: left;
+  padding: 2em;
+}
+
+table.data-table {
+  display: block;
+  clear: left;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border: 1px solid black;
+}
+
+table.data-table td {
+  padding: 1em;
+  text-align: left;
+}
+
+a.view-more-button {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: block;
 }

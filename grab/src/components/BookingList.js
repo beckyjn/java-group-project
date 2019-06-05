@@ -8,7 +8,7 @@ const BookingList = props => {
       <BookingItem
       key = {index}
       time = {entry.time}
-      name = {entry._embedded.customer.name}
+      name = {entry.customer.name}
       date = {entry.date}
       partyNo = {entry.numberInParty}
       >

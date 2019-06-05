@@ -297,9 +297,9 @@ class RestaurantContainer extends Component {
           <CustomerForm
             onSubmit={this.onCustomerSubmit}
             />
-          <BookingForm 
+          <BookingForm
             onSubmit={this.onBookingSubmit}
-            customers={this.state.customers} 
+            customers={this.state.customers}
             restaurantTables={this.state.restaurantTables}/>
           <Switch>
             <Route exact path="/" render={() => <BookingList bookingsData={this.state.todayBookings} />} />

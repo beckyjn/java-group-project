@@ -15,7 +15,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 code {
@@ -28,7 +27,7 @@ ul#navbar {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 1em;
-   margin-bottom: 3em;
+  margin-bottom: 3em;
   padding-bottom: 1em;
   padding-left: 0.5em;
   padding-right: 0.5em;

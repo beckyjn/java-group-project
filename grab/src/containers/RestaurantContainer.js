@@ -85,16 +85,18 @@ class RestaurantContainer extends Component {
             <Route
               exact
               path="/bookings"
-              render={() => <>
+              render={() =>
                 <BookingList
                   bookingsData={this.state.bookings}
                   onBookingSelected={this.selectBooking.bind(this)}
-                  />
-              <BookingDetail
-              bookingDetail={this.state.selectedBooking}
-              />
-              </>
+                />
             }
+            />
+            <Route
+              path="/bookings/:id"
+              render={() => <BookingDetail
+              bookingDetail={this.state.selectedBooking}
+              />}
             />
             <Route
               exact

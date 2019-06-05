@@ -22,7 +22,8 @@ const BookingList = props => {
     );
   }
   return(
-    <table>
+    <div className="data-list-view">
+    <table id="datalist">
     <tr>
     <th>Date</th>
     <th>Name</th>
@@ -31,6 +32,7 @@ const BookingList = props => {
     </tr>
     {bookingsList}
     </table>
+    </div>
   );
 }
 

@@ -87,6 +87,32 @@ ul#datalist li:nth-child(even) {
     background-color: white;
 }
 
+div.data-list-view {
+  display: flex;
+  justify-content: center;
+}
+
+table#datalist {
+  display: block;
+  margin-top: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 3em;
+  margin-left: 0;
+}
+
+table#datalist tr:nth-child(odd) {
+    background-color: lightyellow;
+}
+
+table#datalist tr:nth-child(even) {
+    background-color: white;
+}
+
+table#datalist td {
+  padding: 1.5em;
+  color: black;
+}
 h1 {
   width: 100%;
   text-align: left;
@@ -121,4 +147,29 @@ a.view-more-button {
   border: 1px solid white;
   border-radius: 5px;
   display: block;
+}
+
+div.table-checkbox {
+  display: inline-block;
+  padding-top: 0.5em;
+  padding-left: 0.3em;
+  padding-bottom: 0;
+  padding-right: 0;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  width: 180px;
+  height: 30px;
+  border: 1px solid black;
+  word-wrap: normal;
+}
+
+div#table-box-list {
+  text-align: center;
+  width: 95%;
+  margin: auto;
+}
+
+.clear {
+  clear: both;
 }

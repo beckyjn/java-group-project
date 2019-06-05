@@ -13,12 +13,26 @@ class BookingForm extends Component{
         }
 
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleTimeChange = this.handleTimeChange.bind(this);
+        this.handleGuestChange = this.handleGuestChange.bind(this);
     }
 
     handleDateChange (event) {
         this.setState({
             date: event.target.value
         });
+    }
+
+    handleTimeChange (event){
+        this.setState({
+            time: event.target.value
+        })
+    }
+
+    handleGuestChange (event){
+        this.setState({
+            numberOfGuests: event.target.value
+        })
     }
 
     render () {
@@ -30,9 +44,9 @@ class BookingForm extends Component{
                 <label for="date">Date: </label>
                 <input type="date" id="date" value={this.state.date} onChange={this.handleDateChange} required />
                 <label for="time">Time: </label>
-                <input type="time" id="time" value="time" min="12:00" max="22:00" required />
+                <input type="time" id="time" value={this.state.time} min="12:00" max="22:00" onChange={this.handleTimeChange} required />
                 <label for="numberOfGuests">Number of guests: </label>
-                <input type="number" id="numberOfGuests" value="numberOfGuests" min="1" max="100" required/>
+                <input type="number" id="numberOfGuests" value={this.state.numberOfGuests} min="1" max="100" onChange={this.handleGuestChange} required/>
                 <label for="tables">Tables booked: </label>
                 <input type="checkbox"></input>
                 </form>

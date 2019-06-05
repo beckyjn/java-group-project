@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RestaurantTableRepositoryImpl implements RestaurantTableRepositoryCustom {
 
@@ -18,10 +20,18 @@ public class RestaurantTableRepositoryImpl implements RestaurantTableRepositoryC
     @Transactional
     public List<RestaurantTable> getTablesAvailableOnDate(String date){
         List<RestaurantTable> results = null;
+        List<RestaurantTable> filteredResults = null;
+
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(RestaurantTable.class);
             results = cr.list();
+            filteredResults = new ArrayList<RestaurantTable>();
+            for(RestaurantTable t: results) {
+                if(t.isAvailableOnDate(date)) {
+                    filteredResults.add(t);
+                }
+            }
 
         }
         catch(HibernateException ex) {
@@ -29,7 +39,7 @@ public class RestaurantTableRepositoryImpl implements RestaurantTableRepositoryC
         }
         finally {
             session.close();
-            return results;
+            return filteredResults;
         }
         }
     }

@@ -6,16 +6,15 @@ class CustomerList extends Component {
     const customersNodes = this.props.customers.map((customer) => {
       return (
         <CustomerItem
-          name={ customer.name }
-          email={ customer.email }
-          phone={ customer.phone }
-        />
+        name={ customer.name }
+        email={ customer.email }
+        phone={ customer.phone }></CustomerItem>
       );
     });
 
     return(
       <div className="customers-list">
-        { customersNodes }
+        {customersNodes}
       </div>
     );
   }

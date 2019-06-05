@@ -59,7 +59,11 @@ class RestaurantContainer extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/customers" component={CustomerList}/>
+            <Route path="/customers"
+              render={(customers) => (
+                <CustomerList {...this.state.customers} {...customers} />
+              )}
+              />
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>

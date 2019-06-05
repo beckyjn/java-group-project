@@ -3,13 +3,12 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
-
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
 import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import BookingList from "../components/BookingList";
-
+import CustomerList from "../components/CustomerList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
@@ -17,7 +16,7 @@ class RestaurantContainer extends Component {
     super(props);
     this.state = {
       bookings: null,
-      customers: null,
+      customers: [],
       transactions: null,
       restaurantTables: null,
       selectedCustomer: {
@@ -237,6 +236,11 @@ class RestaurantContainer extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
+            <Route
+              exact
+              path="/customers"
+              render={() => <CustomerList customers={this.state.customers} />}
+            />
             <Route
               exact
               path="/bookings"

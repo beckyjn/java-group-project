@@ -3,16 +3,13 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
-<<<<<<< HEAD
 import BookingForm from '../components/BookingForm';
-=======
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
 import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import BookingList from "../components/BookingList";
 import CustomerList from "../components/CustomerList";
->>>>>>> c3fec08c57f9f256265f5ff6d4a15536a42121e4
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {

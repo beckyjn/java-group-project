@@ -16,6 +16,11 @@ const BookingList = props => {
     )
   });
 
+  if( props.bookingsData === null ){
+    return(
+      <h3>Bookings content loading...</h3>
+    );
+  }
   return(
     <table>
     <tr>

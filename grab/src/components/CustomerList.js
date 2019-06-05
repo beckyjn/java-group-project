@@ -13,6 +13,11 @@ const CustomerList = props =>  {
     );
   });
 
+  if (props.customers === null) {
+    return(
+      <h3>Customers content loading...</h3>
+    );
+  }
   return(
     <table>
     <tr>

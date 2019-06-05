@@ -11,7 +11,7 @@ class RestaurantContainer extends Component {
     super(props);
     this.state = {
       bookings: null,
-      customers: null,
+      customers: [],
       transactions: null,
       restaurantTables: null
     };
@@ -59,9 +59,9 @@ class RestaurantContainer extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/customers"
-              render={(customers) => (
-                <CustomerList {...this.state.customers} {...customers} />
+            <Route exact path="/customers"
+              render={() => (
+                <CustomerList customers={this.state.customers} />
               )}
               />
             <Route component={ErrorPage} />

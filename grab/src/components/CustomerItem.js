@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CustomerItem extends Component {
-  render () {
-    return(
-      <div>
-        <h3>{ this.props.name }</h3>
-        <h3>{ this.props.email }</h3>
-        <h3>{ this.props.phone }</h3>
-      </div>
-    );
-  }
+const CustomerItem = props => {
+  return(
+    <div>
+      <ul id="datalist">
+        <li>{ props.name }</li>
+        <li>{ props.email }</li>
+        <li>{ props.phone }</li>
+      </ul>
+    </div>
+  );
 }
 
 export default CustomerItem;

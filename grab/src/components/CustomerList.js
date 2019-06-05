@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CustomerItem from './CustomerItem';
 
-class CustomerList extends Component {
-  render() {
-    const customersNodes = this.props.customers.map((customer) => {
-      return (
-        <CustomerItem
-        name={ customer.name }
-        email={ customer.email }
-        phone={ customer.phone }></CustomerItem>
-      );
-    });
+const CustomerList = props =>  {
 
-    return(
-      <div className="customers-list">
-        {customersNodes}
-      </div>
+  const customersNodes = props.customers.map((customer, index) => {
+    return (
+      <CustomerItem
+      key = {index}
+      name={ customer.name }
+      email={ customer.email }
+      phone={ customer.phone }></CustomerItem>
     );
-  }
+  });
+
+  return(
+    <div className="customers-list">
+      {customersNodes}
+    </div>
+  );
+
 }
 
 export default CustomerList;

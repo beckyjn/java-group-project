@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CustomerItem = props => {
+const CustomerItem = (props, {match}) => {
   return(
     <div>
-      <ul id="datalist">
-        <li>{ props.name }</li>
-        <li>{ props.email }</li>
-        <li>{ props.phone }</li>
+      <ul>
+        <li>{props.name}</li>
+        <li>{props.email}</li>
+        <li>{props.phone}</li>
       </ul>
     </div>
   );

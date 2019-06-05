@@ -240,7 +240,7 @@ class RestaurantContainer extends Component {
             <Route
               exact
               path="/customers"
-              render={() => <CustomerList customers={this.state.customers} />}
+              render={({ match }) => <CustomerList customers={this.state.customers} match={match} />}
             />
             <Route
               exact

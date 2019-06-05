@@ -6,7 +6,7 @@ const CustomerDetail = ({customer}) => {
           <p>Customer not found...</p>
       )
   } else {
-    let buttonUrl =String('http://localhost:3000/bookingsbycustomer/' + customer.id);
+    let buttonUrl=String('http://localhost:3000/bookingsbycustomer/' + customer.id);
 
   }
   return (

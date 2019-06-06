@@ -91,7 +91,7 @@ class BookingForm extends Component{
                 <form id = "booking-form" onSubmit = {this.handleSubmit}>
                     <label htmlFor="customer_id">Customer</label>
                     <select id="customer_id" name="customerId" onChange={this.handleInputChange}>
-                    <option disabled selected value> -- select a customer -- </option>
+                    <option disabled default value> -- select a customer -- </option>
                         {this.customerOptions()}
                     </select>
 

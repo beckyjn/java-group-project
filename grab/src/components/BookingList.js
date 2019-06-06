@@ -4,11 +4,14 @@ import BookingItem from "./BookingItem"
 const BookingList = props => {
 
   const bookingsList = props.bookingsData.map((entry, index) => {
+    // console.log(entry);
+    let definitelyAName = (entry._embedded)? entry._embedded.customer.name : entry.customer.name
+    //TODO: hack: cleaning the date from server, which sometimes nests customer in _embedded
     return(
       <BookingItem
       key = {index}
       time = {entry.time}
-      name = {entry.customer.name}
+      name = {definitelyAName}
       date = {entry.date}
       partyNo = {entry.numberInParty}
       >
@@ -23,14 +26,18 @@ const BookingList = props => {
   }
   return(
     <div className="data-list-view">
-    <table id="datalist">
+    <table id="datalist"> 
+    <thead>
     <tr>
     <th>Date</th>
     <th>Name</th>
     <th>Time</th>
     <th>Cover</th>
     </tr>
+    </thead>
+    <tbody>
     {bookingsList}
+    </tbody>
     </table>
     </div>
   );

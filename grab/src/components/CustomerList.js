@@ -20,12 +20,16 @@ const CustomerList = props =>  {
   }
   return(
     <table  id="datalist">
+    <thead>
     <tr>
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th>
     </tr>
+    </thead>
+    <tbody>
     {customersNodes}
+    </tbody>
     </table>
   );
 }

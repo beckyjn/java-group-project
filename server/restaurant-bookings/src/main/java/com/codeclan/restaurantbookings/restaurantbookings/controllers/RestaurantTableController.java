@@ -26,6 +26,7 @@ public class RestaurantTableController {
     }
 
     @GetMapping(value="/restaurantTables/availableondate/{date}" )
+    @CrossOrigin
     public List<RestaurantTable> getTablesAvailableOnDate(@PathVariable String date){
         return restaurantTableRepository.getTablesAvailableOnDate(date);
     }

@@ -1,23 +1,38 @@
 import React from "react";
-import BookingItem from "./BookingItem"
+import BookingDetail from "./BookingDetail";
+import BookingItem from './BookingItem';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const BookingList = props => {
 
-  const bookingsList = props.bookingsData.map((entry, index) => {
-    // console.log(entry);
-    let definitelyAName = (entry._embedded)? entry._embedded.customer.name : entry.customer.name
-    //TODO: hack: cleaning the date from server, which sometimes nests customer in _embedded
+  function handleClick(evt) {
+    // console.log(evt.target.value);
+  const selectedBooking = evt.target.value;
+    console.log("selected booking", evt.target.value);
+  props.onBookingSelected(selectedBooking);
+  }
+
+  const bookingsList = props.bookingsData.map((booking, index) => {
+    let definitelyAName = (booking._embedded)? booking._embedded.customer.name : booking.customer.name
+     //TODO: hack: cleaning the date from server, which sometimes nests customer in _embedded
+   
     return(
-      <BookingItem
-      key = {index}
-      time = {entry.time}
-      name = {definitelyAName}
-      date = {entry.date}
-      partyNo = {entry.numberInParty}
-      >
-      </BookingItem>
-    )
+      <>
+      <tr value={booking.id} key={index}>
+        <td>{booking.date}
+        </td>
+        <td>{definitelyAName}
+        </td>
+        <td>{booking.time}
+        </td>
+        <td>{booking.numberInParty}
+        </td>
+        <button onClick={handleClick} value={booking.id}>More Details</button>
+      </tr>
+      </>
+    );
   });
+
 
   if( props.bookingsData === null ){
     return(

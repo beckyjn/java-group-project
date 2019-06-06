@@ -27,7 +27,9 @@ class RestaurantContainer extends Component {
         restaurantTables: []
       },
       selectedRestaurantTable: null,
-      selectedCustomer: {},
+      selectedCustomer: {
+        bookings: [{}]
+      },
       selectedTransaction: null
     };
   }

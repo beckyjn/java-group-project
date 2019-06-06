@@ -15,7 +15,7 @@ const CustomerList = props =>  {
         <td>{customer.name}</td>
         <td>{customer.email}</td>
         <td>{customer.phone}</td>
-        <button onClick={handleClick} value={customer.id}>More Details</button>
+        <button onClick={handleClick} value={index}>More Details</button>
       </tr>
 
     );

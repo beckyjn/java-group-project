@@ -79,7 +79,7 @@ class RestaurantContainer extends Component {
       }
     );
     this.fetchData(
-      `http://localhost:8080/restaurantTables/availableondate/${stringDate}`,
+      `http://localhost:8080/restaurant-tables/availableondate/${stringDate}`,
       restaurantTables => {
         this.setState({ restaurantTablesOnDate: restaurantTables });
         this.setState({ dateChosen: stringDate})

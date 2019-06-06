@@ -80,10 +80,10 @@ public class DataLoader implements ApplicationRunner {
 //        restaurantTableRepository.save(table20);
 //
 //        // 5 customers:
-//        Customer customer1 = new Customer("Pim", "07392383829", "Pim@codeclan.com");
-//        customerRepository.save(customer1);
-//        Customer customer2 = new Customer("Annabel", "07892380029", "Annabel@codeclan.com");
-//        customerRepository.save(customer2);
+        Customer customer1 = new Customer("Pim", "07392383829", "Pim@codeclan.com");
+        customerRepository.save(customer1);
+        Customer customer2 = new Customer("Annabel", "07892380029", "Annabel@codeclan.com");
+        customerRepository.save(customer2);
 //        Customer customer3 = new Customer("Maria", "07293940234", "Maria@codeclan.com");
 //        customerRepository.save(customer3);
 //        Customer customer4 = new Customer("Becky", "072443455332", "Becky@codeclan.com");
@@ -121,8 +121,8 @@ public class DataLoader implements ApplicationRunner {
 //        Customer customer20 = new Customer("King", "01311111121", "King@codeclan.com");
 //        customerRepository.save(customer20);
 //
-//        List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1)));
-//        List myTables1 = new ArrayList<RestaurantTable>(Arrays.asList((table15), (table16)));
+        List myTables = new ArrayList<RestaurantTable>(Arrays.asList((table1)));
+        List myTables1 = new ArrayList<RestaurantTable>(Arrays.asList((table15), (table16)));
 //        List myTables2 = new ArrayList<RestaurantTable>(Arrays.asList((table18)));
 //        List myTables3 = new ArrayList<RestaurantTable>(Arrays.asList((table19)));
 //        List myTables4 = new ArrayList<RestaurantTable>(Arrays.asList((table11)));
@@ -136,19 +136,19 @@ public class DataLoader implements ApplicationRunner {
 //
 
 
-//
-//
-//        // 3 bookings:
-//        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-05"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables1);
-//        bookingRepository.save(booking1);
-//        table15.addBooking(booking1);
-//        restaurantTableRepository.save(table15);
-//        table16.addBooking(booking1);
-//        restaurantTableRepository.save(table16);
-//        Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
-//        bookingRepository.save(booking2);
-//        table1.addBooking(booking2);
-//        restaurantTableRepository.save(table1);
+
+
+        // 3 bookings:
+        Booking booking1 = new Booking(customer1, LocalDate.parse("2019-06-05"), LocalTime.parse("17:00"), 20, "Graduation dinner", myTables1);
+        bookingRepository.save(booking1);
+        table15.addBooking(booking1);
+        restaurantTableRepository.save(table15);
+        table16.addBooking(booking1);
+        restaurantTableRepository.save(table16);
+        Booking booking2 = new Booking(customer2, LocalDate.parse("2019-06-01"), LocalTime.parse("17:00"), 3, "", myTables );
+        bookingRepository.save(booking2);
+        table1.addBooking(booking2);
+        restaurantTableRepository.save(table1);
 //
 //        Booking booking3 = new Booking(customer3, LocalDate.parse("2019-06-01"), LocalTime.parse("19:00"), 1, "Window seat if possible", myTables2 );
 //        bookingRepository.save(booking3);

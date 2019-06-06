@@ -21,11 +21,13 @@ public class RestaurantTableController {
     }
 
     @GetMapping(value="/restaurant-tables/seating/{number}" )
+    @CrossOrigin
     public List<RestaurantTable> getTablesBySeating(@PathVariable int number){
         return restaurantTableRepository.findTablesBySeating(number);
     }
 
-    @GetMapping(value="/restaurantTables/availableondate/{date}" )
+    @GetMapping(value="/restaurant-tables/availableondate/{date}" )
+    @CrossOrigin
     public List<RestaurantTable> getTablesAvailableOnDate(@PathVariable String date){
         return restaurantTableRepository.getTablesAvailableOnDate(date);
     }

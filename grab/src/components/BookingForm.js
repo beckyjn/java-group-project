@@ -107,6 +107,7 @@ class BookingForm extends Component{
                     <div id="table-box-list">
                     {this.restaurantTableChecklist()}
                     </div>
+
                     <input type="submit" />
                 </form>
             </div>

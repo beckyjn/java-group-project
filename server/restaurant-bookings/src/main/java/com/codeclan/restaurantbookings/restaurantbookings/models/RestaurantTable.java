@@ -2,6 +2,7 @@ package com.codeclan.restaurantbookings.restaurantbookings.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public class RestaurantTable {
     @Column(name = "seating")
     private int seating;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("restaurantTables")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

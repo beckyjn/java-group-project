@@ -19,6 +19,7 @@ const BookingDetail = (props) => {
     <h3>Booking Date: {props.booking.date}</h3>
     <h3>Booking Time: {props.booking.time}</h3>
     <h3>Number in Party: {props.booking.numberInParty}</h3>
+    <h3>Notes: {props.booking.notes}</h3>
     <h3>Tables Booked: {tableNumbers.join(', ')}</h3>
     </div>
     // get restaurant table details: embed them in bookings or make a button to view them

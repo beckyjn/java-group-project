@@ -3,7 +3,6 @@ import RestaurantTableDetail from "./RestaurantTableDetail"
 import TableDateForm from "./TableDateForm"
 
 const RestaurantTableList = props => {
-
   const restaurantTableList = props.restaurantTableData.map((entry, index) => {
     return(
       <>
@@ -24,7 +23,7 @@ const RestaurantTableList = props => {
   return(
     <>
     <h1>Tables Available</h1>
-    <TableDateForm />
+    <TableDateForm onSubmit={props.onSubmit} />
     <div className="data-list-view">
 
     <table  id="datalist">

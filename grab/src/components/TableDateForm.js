@@ -6,7 +6,7 @@ class TableDateForm extends Component{
         super(props);
 
         this.state = {
-            dateChosen: ''
+            date: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,15 +26,12 @@ class TableDateForm extends Component{
             handleSubmit(event) {
                 event.preventDefault();
 
-                const payload = {
-                    "dateChosen": this.state.dateChosen,
-                };
-
-                this.props.onSubmit(payload)
+                this.props.onSubmit(this.state.date)
 
                 this.setState({
-                    dateChosen: ''
+                    date: ''
             })
+            console.log('date chosen:', this.state.date);
         }
 
         render () {
@@ -42,9 +39,9 @@ class TableDateForm extends Component{
           return (
           <div className="booking-form">
             <h2>Check Tables by Date:</h2>
-            <form id = "booking-form" onSubmit = {this.handleSubmit}>
+            <form id = "booking-form" onSubmit = {this.handleSubmit} action="http://localhost:3000/tablesondate">
                   <label htmlFor="date">Date: </label>
-                  <input type="date" id="date" name="date" value={this.state.dateChosen} onChange={this.handleInputChange} required />
+                  <input type="date" id="date" name="date" value={this.state.date} onChange={this.handleInputChange} required />
 
                   <br className = "clear" /><br />
                   <input type="submit" />

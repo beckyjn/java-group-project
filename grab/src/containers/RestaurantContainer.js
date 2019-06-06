@@ -12,6 +12,7 @@ import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
+import BookingItem from '../components/BookingItem';
 import CustomerList from "../components/CustomerList";
 import CustomerForm from "../components/CustomerForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -25,10 +26,14 @@ class RestaurantContainer extends Component {
       customers: [],
       transactions: [],
       restaurantTables: [],
-      restaurantTablesOnDate: [],
-      dateChosen: null,
-      selectedCustomer: null,
-      selectedBooking: null,
+      selectedBooking: {
+        customer: {},
+        restaurantTables: []
+      },
+      selectedRestaurantTable: null,
+      selectedCustomer: {
+        bookings: [{}]
+      },
       selectedTransaction: null
     };
 
@@ -60,14 +65,16 @@ class RestaurantContainer extends Component {
     const month = `${today.getMonth() + 1}`.padStart(2, 0)
     const day = `${today.getDate()}`.padStart(2, 0)
     const stringDate = [year, month, day].join("-")
-    console.log(stringDate);
+    // console.log(stringDate);
+    // console.log(`http://localhost:8080/bookings/date/${stringDate}`);
 
     this.fetchData(`http://localhost:8080/bookings/date/${stringDate}`, bookings => {
       this.setState({ todayBookings: bookings });
     });
 
     this.fetchData("http://localhost:8080/bookings", bookings => {
-      this.setState({ bookings: bookings._embedded.bookings });
+      let newBookings = bookings._embedded.bookings;
+      this.setState({ bookings: newBookings });
     });
     this.fetchData("http://localhost:8080/customers", customers => {
       this.setState({ customers: customers._embedded.customers });
@@ -146,6 +153,19 @@ class RestaurantContainer extends Component {
     );
   }
 
+  selectBooking(selectedIndex) {
+    const selectedBooking = this.state.bookings[selectedIndex];
+    console.log(selectedBooking);
+    this.setState({ selectedBooking })
+  }
+
+  selectCustomer(selectedIndex) {
+    const selectedCustomer = this.state.customers[selectedIndex];
+    this.setState({ selectedCustomer })
+  }
+
+
+
   render() {
     return (
       <Router>
@@ -164,12 +184,26 @@ class RestaurantContainer extends Component {
             <Route
               exact
               path="/customers"
-              render={() => <CustomerList customers={this.state.customers} />}
+              render={() =>
+                <>
+                <CustomerList customers={this.state.customers}
+              onCustomerSelected={this.selectCustomer.bind(this)}/>
+              <CustomerDetail customer={this.state.selectedCustomer}/>
+              </>}
             />
             <Route
               exact
               path="/bookings"
-              render={() => <BookingList bookingsData={this.state.bookings} />}
+              render={() =>
+                <>
+                <BookingList
+                  bookingsData={this.state.bookings}
+                  onBookingSelected={this.selectBooking.bind(this)}
+                />
+                <BookingDetail
+                  booking={this.state.selectedBooking}
+                />
+              </>}
             />
           
             <Route
@@ -186,7 +220,6 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
-
       </Router>
     );
   }

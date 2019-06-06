@@ -22,6 +22,7 @@ const TransactionList = props => {
   }
   return(
     <table  id="datalist">
+    <thead>
     <tr>
     <th>Date</th>
     <th>Paid</th>
@@ -29,7 +30,10 @@ const TransactionList = props => {
     <th>Balance</th>
     <th>Warning</th>
     </tr>
+    </thead>
+    <tbody>
     {allTransactions}
+    </tbody>
     </table>
   );
 }

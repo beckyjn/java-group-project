@@ -11,6 +11,7 @@ import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
+import BookingItem from '../components/BookingItem';
 import CustomerList from "../components/CustomerList";
 import CustomerForm from "../components/CustomerForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -24,10 +25,21 @@ class RestaurantContainer extends Component {
       customers: [],
       transactions: [],
       restaurantTables: [],
+<<<<<<< HEAD
+      selectedBooking: {
+        customer: {},
+        restaurantTables: []
+      },
+      selectedRestaurantTable: null,
+      selectedCustomer: {
+        bookings: [{}]
+      },
+=======
       restaurantTablesOnDate: [],
       dateChosen: null,
       selectedCustomer: null,
       selectedBooking: null,
+>>>>>>> develop
       selectedTransaction: null
     };
 
@@ -133,6 +145,19 @@ class RestaurantContainer extends Component {
       });
   }
 
+  selectBooking(selectedIndex) {
+    const selectedBooking = this.state.bookings[selectedIndex];
+    console.log(selectedBooking);
+    this.setState({ selectedBooking })
+  }
+
+  selectCustomer(selectedIndex) {
+    const selectedCustomer = this.state.customers[selectedIndex];
+    this.setState({ selectedCustomer })
+  }
+
+
+
   render() {
     return (
       <Router>
@@ -151,12 +176,26 @@ class RestaurantContainer extends Component {
             <Route
               exact
               path="/customers"
-              render={() => <CustomerList customers={this.state.customers} />}
+              render={() =>
+                <>
+                <CustomerList customers={this.state.customers}
+              onCustomerSelected={this.selectCustomer.bind(this)}/>
+              <CustomerDetail customer={this.state.selectedCustomer}/>
+              </>}
             />
             <Route
               exact
               path="/bookings"
-              render={() => <BookingList bookingsData={this.state.bookings} />}
+              render={() =>
+                <>
+                <BookingList
+                  bookingsData={this.state.bookings}
+                  onBookingSelected={this.selectBooking.bind(this)}
+                />
+                <BookingDetail
+                  booking={this.state.selectedBooking}
+                />
+              </>}
             />
             <Route
               exact
@@ -177,7 +216,10 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
+<<<<<<< HEAD
+=======
 
+>>>>>>> develop
       </Router>
     );
   }

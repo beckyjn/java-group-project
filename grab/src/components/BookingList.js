@@ -5,50 +5,50 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const BookingList = props => {
 
-  // function handleClick(evt) {
-  //   // console.log(evt.target.value);
-  // const selectedBooking = evt.target.value;
-  //   console.log("selected booking", evt.target.value);
-  // props.onBookingSelected(selectedBooking);
-  // }
+  function handleClick(evt) {
+    // console.log(evt.target.value);
+  const selectedBooking = evt.target.value;
+    console.log("selected booking", evt.target.value);
+  props.onBookingSelected(selectedBooking);
+  }
 
-  // const bookingsList = props.bookingsData.map((booking, index) => {
-  //   return(
-  //     <>
-  //     <tr value={booking.id} key={index}>
-  //       <td>{booking.date}
-  //       </td>
-  //       <td>{booking.customer.name}
-  //       </td>
-  //       <td>{booking.time}
-  //       </td>
-  //       <td>{booking.numberInParty}
-  //       </td>
-  //       <button  onClick={`/bookings/${booking.id}`} onClick={handleClick} value={booking.id}>More Details</button>
-  //     </tr>
-  //     </>
-  //   );
-  // });
-
-  const bookingsList = props.bookingsData.map( (booking, index) => {
+  const bookingsList = props.bookingsData.map((booking, index) => {
     return(
       <>
-        <tr key={index}>
-          <Link to={`/bookings/${booking.id}`}>
-            <td>{booking.date}</td>
-            <td>{booking.customer.name}</td>
-            <td>{booking.time}</td>
-            <td>{booking.numberInParty}</td>
-          </Link>
-        </tr>
-
-        <Route
-          path={`/bookings/:bookingId`}
-          render ={ (match) => <BookingItem/>}
-        />
+      <tr value={booking.id} key={index}>
+        <td>{booking.date}
+        </td>
+        <td>{booking.customer.name}
+        </td>
+        <td>{booking.time}
+        </td>
+        <td>{booking.numberInParty}
+        </td>
+        <button onClick={handleClick} value={booking.id}>More Details</button>
+      </tr>
       </>
     );
   });
+
+  // const bookingsList = props.bookingsData.map( (booking, index) => {
+  //   return(
+  //     <>
+  //       <tr key={index}>
+  //         <Link to={`/bookings/${booking.id}`}>
+  //           <td>{booking.date}</td>
+  //           <td>{booking.customer.name}</td>
+  //           <td>{booking.time}</td>
+  //           <td>{booking.numberInParty}</td>
+  //         </Link>
+  //       </tr>
+  //
+  //       <Route
+  //         path={`/bookings/:bookingId`}
+  //         render ={ (match) => <BookingItem/>}
+  //       />
+  //     </>
+  //   );
+  // });
 
   if( props.bookingsData === null ){
     return(
@@ -58,9 +58,13 @@ const BookingList = props => {
   return(
     <table>
     <tr>
-    <th>Date | Name | Time | Cover</th>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Cover</th>
     </tr>
     {bookingsList}
+
     </table>
   );
 }

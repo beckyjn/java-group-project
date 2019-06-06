@@ -22,9 +22,12 @@ class RestaurantContainer extends Component {
       customers: [],
       transactions: [],
       restaurantTables: [],
-      selectedBooking: null,
+      selectedBooking: {
+        customer: {},
+        restaurantTables: []
+      },
       selectedRestaurantTable: null,
-      selectedCustomer: null,
+      selectedCustomer: {},
       selectedTransaction: null
     };
   }
@@ -69,6 +72,8 @@ class RestaurantContainer extends Component {
     this.setState({ selectedBooking })
   }
 
+
+
   render() {
     return (
       <Router>
@@ -87,10 +92,15 @@ class RestaurantContainer extends Component {
               exact
               path="/bookings"
               render={() =>
+                <>
                 <BookingList
                   bookingsData={this.state.bookings}
                   onBookingSelected={this.selectBooking.bind(this)}
-                /> }
+                />
+                <BookingDetail
+                  booking={this.state.selectedBooking}
+                />
+              </>}
             />
             <Route
               exact

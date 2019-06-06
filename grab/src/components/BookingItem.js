@@ -40,7 +40,7 @@ class BookingItem extends Component {
       <h3>Booking Date: {booking.date}</h3>
       <h3>Booking Time: {booking.time}</h3>
       <h3>Number in Party: {booking.numberInParty}</h3>
-      <h3>Tables Booked: {bookings.restaurantTables.tableNumber}</h3>
+      <h3>Tables Booked: {booking.restaurantTables.tableNumber}</h3>
       </div>
     );
   }
@@ -48,7 +48,7 @@ class BookingItem extends Component {
   render() {
     return(
       <div>
-        {findMatchingBooking}
+        {this.findMatchingBooking().bind(this)}
       </div>
     );
   }

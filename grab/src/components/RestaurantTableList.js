@@ -1,5 +1,6 @@
 import React from "react";
 import RestaurantTableDetail from "./RestaurantTableDetail"
+import TableDateForm from "./TableDateForm"
 
 const RestaurantTableList = props => {
 
@@ -23,6 +24,7 @@ const RestaurantTableList = props => {
   return(
     <>
     <h1>Tables Available</h1>
+    <TableDateForm />
     <div className="data-list-view">
 
     <table  id="datalist">

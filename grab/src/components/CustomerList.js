@@ -1,15 +1,23 @@
 import React from 'react';
 import CustomerItem from './CustomerItem';
+import CustomerDetail from './CustomerDetail';
 
 const CustomerList = props =>  {
+  function handleClick(evt) {
+  const selectedCustomer = evt.target.value;
+    console.log("selected booking", evt.target.value);
+  props.onCustomerSelected(selectedCustomer);
+  }
 
   const customersNodes = props.customers.map((customer, index) => {
     return (
-      <CustomerItem
-      key = {index}
-      name={ customer.name }
-      email={ customer.email }
-      phone={ customer.phone }></CustomerItem>
+      <tr value={customer.id} key={index}>
+        <td>{customer.name}</td>
+        <td>{customer.email}</td>
+        <td>{customer.phone}</td>
+        <button onClick={handleClick} value={customer.id}>More Details</button>
+      </tr>
+
     );
   });
 

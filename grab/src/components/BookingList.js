@@ -64,7 +64,6 @@ const BookingList = props => {
     <th>Cover</th>
     </tr>
     {bookingsList}
-
     </table>
   );
 }

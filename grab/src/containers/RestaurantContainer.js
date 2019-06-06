@@ -72,6 +72,11 @@ class RestaurantContainer extends Component {
     this.setState({ selectedBooking })
   }
 
+  selectCustomer(selectedIndex) {
+    const selectedCustomer = this.state.customers[selectedIndex];
+    this.setState({ selectedCustomer })
+  }
+
 
 
   render() {
@@ -86,7 +91,12 @@ class RestaurantContainer extends Component {
             <Route
               exact
               path="/customers"
-              render={() => <CustomerList customers={this.state.customers} />}
+              render={() =>
+                <>
+                <CustomerList customers={this.state.customers}
+              onCustomerSelected={this.selectCustomer.bind(this)}/>
+              <CustomerDetail customer={this.state.selectedCustomer}/>
+              </>}
             />
             <Route
               exact

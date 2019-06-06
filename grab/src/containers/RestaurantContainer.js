@@ -25,7 +25,6 @@ class RestaurantContainer extends Component {
       customers: [],
       transactions: [],
       restaurantTables: [],
-<<<<<<< HEAD
       selectedBooking: {
         customer: {},
         restaurantTables: []
@@ -34,12 +33,6 @@ class RestaurantContainer extends Component {
       selectedCustomer: {
         bookings: [{}]
       },
-=======
-      restaurantTablesOnDate: [],
-      dateChosen: null,
-      selectedCustomer: null,
-      selectedBooking: null,
->>>>>>> develop
       selectedTransaction: null
     };
 
@@ -69,14 +62,16 @@ class RestaurantContainer extends Component {
     const month = `${today.getMonth() + 1}`.padStart(2, 0)
     const day = `${today.getDate()}`.padStart(2, 0)
     const stringDate = [year, month, day].join("-")
-    console.log(stringDate);
+    // console.log(stringDate);
+    // console.log(`http://localhost:8080/bookings/date/${stringDate}`);
 
     this.fetchData(`http://localhost:8080/bookings/date/${stringDate}`, bookings => {
       this.setState({ todayBookings: bookings });
     });
 
     this.fetchData("http://localhost:8080/bookings", bookings => {
-      this.setState({ bookings: bookings._embedded.bookings });
+      let newBookings = bookings._embedded.bookings;
+      this.setState({ bookings: newBookings });
     });
     this.fetchData("http://localhost:8080/customers", customers => {
       this.setState({ customers: customers._embedded.customers });
@@ -214,10 +209,6 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
       </Router>
     );
   }

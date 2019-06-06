@@ -13,12 +13,15 @@ const BookingList = props => {
   }
 
   const bookingsList = props.bookingsData.map((booking, index) => {
+    let definitelyAName = (booking._embedded)? booking._embedded.customer.name : booking.customer.name
+     //TODO: hack: cleaning the date from server, which sometimes nests customer in _embedded
+   
     return(
       <>
       <tr value={booking.id} key={index}>
         <td>{booking.date}
         </td>
-        <td>{booking.customer.name}
+        <td>{definitelyAName}
         </td>
         <td>{booking.time}
         </td>
@@ -30,25 +33,6 @@ const BookingList = props => {
     );
   });
 
-  // const bookingsList = props.bookingsData.map( (booking, index) => {
-  //   return(
-  //     <>
-  //       <tr key={index}>
-  //         <Link to={`/bookings/${booking.id}`}>
-  //           <td>{booking.date}</td>
-  //           <td>{booking.customer.name}</td>
-  //           <td>{booking.time}</td>
-  //           <td>{booking.numberInParty}</td>
-  //         </Link>
-  //       </tr>
-  //
-  //       <Route
-  //         path={`/bookings/:bookingId`}
-  //         render ={ (match) => <BookingItem/>}
-  //       />
-  //     </>
-  //   );
-  // });
 
   if( props.bookingsData === null ){
     return(
@@ -57,14 +41,18 @@ const BookingList = props => {
   }
   return(
     <div className="data-list-view">
-    <table id="datalist">
+    <table id="datalist"> 
+    <thead>
     <tr>
     <th>Date</th>
     <th>Name</th>
     <th>Time</th>
     <th>Cover</th>
     </tr>
+    </thead>
+    <tbody>
     {bookingsList}
+    </tbody>
     </table>
     </div>
   );

@@ -10,6 +10,7 @@ import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
+import BookingItem from '../components/BookingItem';
 import CustomerList from "../components/CustomerList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -89,14 +90,7 @@ class RestaurantContainer extends Component {
                 <BookingList
                   bookingsData={this.state.bookings}
                   onBookingSelected={this.selectBooking.bind(this)}
-                />
-            }
-            />
-            <Route
-              path="/bookings/:id"
-              render={(match) => <BookingDetail
-              bookingDetail={this.state.selectedBooking}
-              />}
+                /> }
             />
             <Route
               exact

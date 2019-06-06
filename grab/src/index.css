@@ -117,10 +117,12 @@ h1 {
   width: 100%;
   text-align: left;
   display: block;
+  clear: both;
 }
 div#data-detail {
   float: left;
   padding: 2em;
+  clear: both;
 }
 
 table.data-table {
@@ -172,4 +174,9 @@ div#table-box-list {
 
 .clear {
   clear: both;
+}
+
+div.table-detail h3, div.table-detail p {
+  display: inline;
+  padding: 3em 3em 3em 1em;
 }

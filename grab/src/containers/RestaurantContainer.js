@@ -3,7 +3,7 @@ import NavBar from "../components/Navbar";
 import Home from "../components/Home";
 import About from "../components/About";
 import ErrorPage from "../components/ErrorPage";
-import BookingForm from '../components/BookingForm';
+import BookingForm from "../components/BookingForm";
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
 import RestaurantTableList from "../components/RestaurantTableList";
@@ -11,7 +11,7 @@ import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
-import BookingItem from '../components/BookingItem';
+import BookingItem from "../components/BookingItem";
 import CustomerList from "../components/CustomerList";
 import CustomerForm from "../components/CustomerForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -25,7 +25,6 @@ class RestaurantContainer extends Component {
       customers: [],
       transactions: [],
       restaurantTables: [],
-<<<<<<< HEAD
       selectedBooking: {
         customer: {},
         restaurantTables: []
@@ -34,16 +33,10 @@ class RestaurantContainer extends Component {
       selectedCustomer: {
         bookings: [{}]
       },
-=======
-      restaurantTablesOnDate: [],
-      dateChosen: null,
-      selectedCustomer: null,
-      selectedBooking: null,
->>>>>>> develop
       selectedTransaction: null
     };
 
-    this.onBookingSubmit =  this.onBookingSubmit.bind(this);
+    this.onBookingSubmit = this.onBookingSubmit.bind(this);
     this.onCustomerSubmit = this.onCustomerSubmit.bind(this);
   }
 
@@ -64,21 +57,22 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
-    const today = new Date()
-    const year = today.getFullYear()
-    const month = `${today.getMonth() + 1}`.padStart(2, 0)
-    const day = `${today.getDate()}`.padStart(2, 0)
-    const stringDate = [year, month, day].join("-")
-    // console.log(stringDate);
-    // console.log(`http://localhost:8080/bookings/date/${stringDate}`);
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = `${today.getMonth() + 1}`.padStart(2, 0);
+    const day = `${today.getDate()}`.padStart(2, 0);
+    const stringDate = [year, month, day].join("-");
+    console.log(stringDate);
 
-    this.fetchData(`http://localhost:8080/bookings/date/${stringDate}`, bookings => {
-      this.setState({ todayBookings: bookings });
-    });
+    this.fetchData(
+      `http://localhost:8080/bookings/date/${stringDate}`,
+      bookings => {
+        this.setState({ todayBookings: bookings });
+      }
+    );
 
     this.fetchData("http://localhost:8080/bookings", bookings => {
-      let newBookings = bookings._embedded.bookings;
-      this.setState({ bookings: newBookings });
+      this.setState({ bookings: bookings._embedded.bookings });
     });
     this.fetchData("http://localhost:8080/customers", customers => {
       this.setState({ customers: customers._embedded.customers });
@@ -96,14 +90,14 @@ class RestaurantContainer extends Component {
       `http://localhost:8080/restaurantTables/availableondate/${stringDate}`,
       restaurantTables => {
         this.setState({ restaurantTablesOnDate: restaurantTables });
-        this.setState({ dateChosen: stringDate})
-        console.log('date chosen', stringDate);
+        this.setState({ dateChosen: stringDate });
+        console.log("date chosen", stringDate);
       }
     );
   }
 
-  onBookingSubmit(payload){
-    fetch('http://localhost:8080/bookings', {
+  onBookingSubmit(payload) {
+    fetch("http://localhost:8080/bookings", {
       mode: "cors",
       method: "POST",
       headers: {
@@ -112,28 +106,29 @@ class RestaurantContainer extends Component {
         "Access-Control-Allow-Origin": "http://localhost:3000"
       },
       body: JSON.stringify(payload)
-  })
-  .then(res => res.json())
-  .then(res => {   let bookings = [...this.state.bookings];
-    bookings.push(res);
-    this.setState({ bookings });
-  })
-  .catch(error => {
-      console.error(error);
-  });
+    })
+      .then(res => res.json())
+      .then(res => {
+        let bookings = [...this.state.bookings];
+        bookings.push(res);
+        this.setState({ bookings });
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
-  onCustomerSubmit(payload){
-      fetch('http://localhost:8080/customers', {
-        mode: "cors",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:3000"
-        },
-        body: JSON.stringify(payload)
-      })
+  onCustomerSubmit(payload) {
+    fetch("http://localhost:8080/customers", {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      body: JSON.stringify(payload)
+    })
       .then(res => res.json())
       .then(res => {
         let customers = [...this.state.customers];
@@ -141,70 +136,83 @@ class RestaurantContainer extends Component {
         this.setState({ customers });
       })
       .catch(error => {
-          console.error(error);
+        console.error(error);
       });
   }
 
   selectBooking(selectedIndex) {
     const selectedBooking = this.state.bookings[selectedIndex];
     console.log(selectedBooking);
-    this.setState({ selectedBooking })
+    this.setState({ selectedBooking });
   }
 
   selectCustomer(selectedIndex) {
     const selectedCustomer = this.state.customers[selectedIndex];
-    this.setState({ selectedCustomer })
+    this.setState({ selectedCustomer });
   }
-
-
 
   render() {
     return (
       <Router>
         <React.Fragment>
           <NavBar />
-          <CustomerForm
-            onSubmit={this.onCustomerSubmit}
-            />
+          <CustomerForm onSubmit={this.onCustomerSubmit} />
           <BookingForm
             onSubmit={this.onBookingSubmit}
             customers={this.state.customers}
-            restaurantTables={this.state.restaurantTables}/>
+            restaurantTables={this.state.restaurantTables}
+          />
           <Switch>
-            <Route exact path="/" render={() => <BookingList bookingsData={this.state.todayBookings} />} />
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <BookingList bookingsData={this.state.todayBookings} />
+              )}
+            />
             <Route path="/about" component={About} />
             <Route
               exact
               path="/customers"
-              render={() =>
+              render={() => (
                 <>
-                <CustomerList customers={this.state.customers}
-              onCustomerSelected={this.selectCustomer.bind(this)}/>
-              <CustomerDetail customer={this.state.selectedCustomer}/>
-              </>}
+                  <CustomerList
+                    customers={this.state.customers}
+                    onCustomerSelected={this.selectCustomer.bind(this)}
+                  />
+                  <CustomerDetail customer={this.state.selectedCustomer} />
+                </>
+              )}
             />
             <Route
               exact
               path="/bookings"
-              render={() =>
+              render={() => (
                 <>
-                <BookingList
-                  bookingsData={this.state.bookings}
-                  onBookingSelected={this.selectBooking.bind(this)}
-                />
-                <BookingDetail
-                  booking={this.state.selectedBooking}
-                />
-              </>}
+                  <BookingList
+                    bookingsData={this.state.bookings}
+                    onBookingSelected={this.selectBooking.bind(this)}
+                  />
+                  <BookingDetail booking={this.state.selectedBooking} />
+                </>
+              )}
             />
             <Route
               exact
               path="/tables"
-              render={() => <RestaurantTableList restaurantTableData={this.state.restaurantTables} />}
+              render={() => (
+                <RestaurantTableList
+                  restaurantTableData={this.state.restaurantTables}
+                />
+              )}
             />
             <Route
               path="/tablesondate"
-              render={() => <RestaurantTableList restaurantTableData={this.state.restaurantTablesOnDate} /> }
+              render={() => (
+                <RestaurantTableList
+                  restaurantTableData={this.state.restaurantTablesOnDate}
+                />
+              )}
             />
             <Route
               exact
@@ -216,10 +224,6 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
       </Router>
     );
   }

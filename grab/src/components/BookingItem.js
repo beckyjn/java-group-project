@@ -31,7 +31,7 @@ class BookingItem extends Component {
   }
 
   findMatchingBooking() {
-    const booking = this.state.bookings.find(({ id }) => id === props.match.params.bookingId);
+    const booking = this.state.bookings.find(({ id }) => id === this.props.match.params.bookingId);
 
     return(
       <div>

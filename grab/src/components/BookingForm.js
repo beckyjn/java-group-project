@@ -4,7 +4,7 @@ class BookingForm extends Component{
 
     constructor(props){
         super(props);
-        
+
         this.state = {
             customerId: '',
             numberOfGuests: '',
@@ -22,8 +22,8 @@ class BookingForm extends Component{
         const restaurantTableChecklist = this.props.restaurantTables.map((restaurantTable) => {
             return(
                 <div className="table-checkbox" key={restaurantTable.id}>
-                    <input type="checkbox" id={restaurantTable.id} name="restaurantTable" value={restaurantTable.id} onChange={this.handleCheckboxChange} />
-                    <label htmlFor="restaurantTable"> Table {restaurantTable.tableNumber} (seats {restaurantTable.seating})</label>
+                    <input className="tablebox" type="checkbox" id={restaurantTable.id} name="restaurantTable" value={restaurantTable.id} onChange={this.handleCheckboxChange} />
+                    <label className="tablebox" htmlFor="restaurantTable"> Table {restaurantTable.tableNumber} (seats {restaurantTable.seating})</label>
                 </div>
             );
         })
@@ -62,28 +62,23 @@ class BookingForm extends Component{
         event.preventDefault();
 
         const payload = {
-            "customer": `http://localhost:8080/customers/${ this.state.customerId }`, 
+            "customer": `http://localhost:8080/customers/${ this.state.customerId }`,
             "date": this.state.date,
             "time": this.state.time,
             "numberInParty": this.state.numberOfGuests,
-            "restaurantTables": this.state.selectedTables 
+            "restaurantTables": this.state.selectedTables
         };
 
-        fetch('http://localhost:8080/bookings', {
-            mode: "cors",
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              "Access-Control-Allow-Origin": "http://localhost:3000"
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(res => res.json())
-        .catch(error => {
-            console.error(error);
-        });
-    }
+        this.props.onSubmit(payload)
+
+        this.setState({
+            customerId: '',
+            numberOfGuests: '',
+            selectedTables: [],
+            time: '',
+            date: ''
+    })
+}
 
     render () {
         if (this.props.restaurantTables === null) {
@@ -96,26 +91,28 @@ class BookingForm extends Component{
                 <form id = "booking-form" onSubmit = {this.handleSubmit}>
                     <label htmlFor="customer_id">Customer</label>
                     <select id="customer_id" name="customerId" onChange={this.handleInputChange}>
+                    <option disabled selected value> -- select a customer -- </option>
                         {this.customerOptions()}
                     </select>
 
                     <label htmlFor="date">Date: </label>
                     <input type="date" id="date" name="date" value={this.state.date} onChange={this.handleInputChange} required />
-                    
+
                     <label htmlFor="time">Time: </label>
                     <input type="time" id="time" name="time" value={this.state.time} min="12:00" max="22:00" onChange={this.handleInputChange} required />
-                    
+
                     <label htmlFor="numberOfGuests">Number of guests: </label>
                     <input type="number" id="numberOfGuests" name="numberOfGuests" value={this.state.numberOfGuests} min="1" max="100" onChange={this.handleInputChange} required/>
-                    
+                    <br className = "clear" /><br />
+                    <div id="table-box-list">
                     {this.restaurantTableChecklist()}
-
+                    </div>
                     <input type="submit" />
                 </form>
             </div>
         )
     }
+    }
 
-}
 
 export default BookingForm;

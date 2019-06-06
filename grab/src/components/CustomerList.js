@@ -27,7 +27,7 @@ const CustomerList = props =>  {
     );
   }
   return(
-    <table>
+    <table  id="datalist">
     <tr>
     <th>Name</th>
     <th>Email</th>

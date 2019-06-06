@@ -6,22 +6,26 @@ import ErrorPage from "../components/ErrorPage";
 import BookingForm from '../components/BookingForm';
 import CustomerDetail from "../components/CustomerDetail";
 import RestaurantTableDetail from "../components/RestaurantTableDetail";
+import RestaurantTableList from "../components/RestaurantTableList";
 import BookingDetail from "../components/BookingDetail";
 import TransactionDetail from "../components/TransactionDetail";
 import TransactionList from "../components/TransactionList";
 import BookingList from "../components/BookingList";
 import BookingItem from '../components/BookingItem';
 import CustomerList from "../components/CustomerList";
+import CustomerForm from "../components/CustomerForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      todayBookings: [],
       bookings: [],
       customers: [],
       transactions: [],
       restaurantTables: [],
+<<<<<<< HEAD
       selectedBooking: {
         customer: {},
         restaurantTables: []
@@ -30,8 +34,17 @@ class RestaurantContainer extends Component {
       selectedCustomer: {
         bookings: [{}]
       },
+=======
+      restaurantTablesOnDate: [],
+      dateChosen: null,
+      selectedCustomer: null,
+      selectedBooking: null,
+>>>>>>> develop
       selectedTransaction: null
     };
+
+    this.onBookingSubmit =  this.onBookingSubmit.bind(this);
+    this.onCustomerSubmit = this.onCustomerSubmit.bind(this);
   }
 
   fetchData(url, callback) {
@@ -51,6 +64,17 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = `${today.getMonth() + 1}`.padStart(2, 0)
+    const day = `${today.getDate()}`.padStart(2, 0)
+    const stringDate = [year, month, day].join("-")
+    console.log(stringDate);
+
+    this.fetchData(`http://localhost:8080/bookings/date/${stringDate}`, bookings => {
+      this.setState({ todayBookings: bookings });
+    });
+
     this.fetchData("http://localhost:8080/bookings", bookings => {
       this.setState({ bookings: bookings._embedded.bookings });
     });
@@ -66,6 +90,57 @@ class RestaurantContainer extends Component {
         this.setState({ restaurantTables: restaurantTables });
       }
     );
+    this.fetchData(
+      `http://localhost:8080/restaurantTables/availableondate/${stringDate}`,
+      restaurantTables => {
+        this.setState({ restaurantTablesOnDate: restaurantTables });
+        this.setState({ dateChosen: stringDate})
+        console.log('date chosen', stringDate);
+      }
+    );
+  }
+
+  onBookingSubmit(payload){
+    fetch('http://localhost:8080/bookings', {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+      },
+      body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(res => {   let bookings = [...this.state.bookings];
+    bookings.push(res);
+    this.setState({ bookings });
+  })
+  .catch(error => {
+      console.error(error);
+  });
+  }
+
+  onCustomerSubmit(payload){
+      fetch('http://localhost:8080/customers', {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:3000"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(res => {
+        let customers = [...this.state.customers];
+        customers.push(res);
+        this.setState({ customers });
+      })
+      .catch(error => {
+          console.error(error);
+      });
   }
 
   selectBooking(selectedIndex) {
@@ -86,9 +161,15 @@ class RestaurantContainer extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
-          <BookingForm customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
+          <CustomerForm
+            onSubmit={this.onCustomerSubmit}
+            />
+          <BookingForm
+            onSubmit={this.onBookingSubmit}
+            customers={this.state.customers}
+            restaurantTables={this.state.restaurantTables}/>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={() => <BookingList bookingsData={this.state.todayBookings} />} />
             <Route path="/about" component={About} />
             <Route
               exact
@@ -116,6 +197,15 @@ class RestaurantContainer extends Component {
             />
             <Route
               exact
+              path="/tables"
+              render={() => <RestaurantTableList restaurantTableData={this.state.restaurantTables} />}
+            />
+            <Route
+              path="/tablesondate"
+              render={() => <RestaurantTableList restaurantTableData={this.state.restaurantTablesOnDate} /> }
+            />
+            <Route
+              exact
               path="/transactions"
               render={() => (
                 <TransactionList transactionsData={this.state.transactions} />
@@ -124,6 +214,10 @@ class RestaurantContainer extends Component {
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
       </Router>
     );
   }

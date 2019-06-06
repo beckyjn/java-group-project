@@ -15,7 +15,7 @@ const BookingList = props => {
   const bookingsList = props.bookingsData.map((booking, index) => {
     let definitelyAName = (booking._embedded)? booking._embedded.customer.name : booking.customer.name
      //TODO: hack: cleaning the date from server, which sometimes nests customer in _embedded
-   
+
     return(
       <>
       <tr value={booking.id} key={index}>
@@ -27,7 +27,7 @@ const BookingList = props => {
         </td>
         <td>{booking.numberInParty}
         </td>
-        <button onClick={handleClick} value={booking.id}>More Details</button>
+        <button onClick={handleClick} value={index}>More Details</button>
       </tr>
       </>
     );
@@ -41,7 +41,7 @@ const BookingList = props => {
   }
   return(
     <div className="data-list-view">
-    <table id="datalist"> 
+    <table id="datalist">
     <thead>
     <tr>
     <th>Date</th>

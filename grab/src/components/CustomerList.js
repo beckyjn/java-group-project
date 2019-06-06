@@ -19,6 +19,8 @@ const CustomerList = props =>  {
     );
   }
   return(
+    <div className="data-list-view">
+
     <table  id="datalist">
     <tr>
     <th>Name</th>
@@ -27,6 +29,7 @@ const CustomerList = props =>  {
     </tr>
     {customersNodes}
     </table>
+    </div>
   );
 }
 

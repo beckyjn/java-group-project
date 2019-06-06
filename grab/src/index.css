@@ -94,6 +94,7 @@ div.data-list-view {
 
 table#datalist {
   display: block;
+  margin: auto;
   margin-top: 2em;
   margin-left: 2em;
   margin-right: 2em;

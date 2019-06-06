@@ -23,6 +23,8 @@ const RestaurantTableList = props => {
   return(
     <>
     <h1>Tables Available</h1>
+    <div className="data-list-view">
+
     <table  id="datalist">
     <tbody>
     <tr>
@@ -35,6 +37,7 @@ const RestaurantTableList = props => {
     {restaurantTableList}
       </tbody>
       </table>
+      </div>
     </>
   );
 }
